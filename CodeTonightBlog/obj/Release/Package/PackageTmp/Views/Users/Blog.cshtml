@@ -1,0 +1,458 @@
+﻿
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .btn-default {
+    background-color: white !important;
+    color: black !important;
+    border-color: black !important;
+}
+    .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    color: #0066ff !important;
+    background-color: #cd3c2e;
+    border-color: #cd3c2e;
+}
+ .note-toolbar {
+    position: static !important;
+    z-index: 500;
+}
+      .btn-default:hover {
+    background-color: white !important;
+    color: black !important;
+    border-color: black !important;
+}
+    .panel-heading a {
+    font-weight: 400;
+    padding: 12px 35px 12px 15px;
+    display: inline-block;
+    width: 100%;
+    background-color: transparent;
+    color: #ffffff;
+    position: relative;
+    text-decoration: none;
+}
+    .btn.btn-sm {
+    padding: 8px;
+    font-size: 12px;
+    min-width: 55px;
+}
+    .btn
+    {
+       padding: 4px 2px !important;
+    }
+</style>
+<section class="main-container" ng-app="myapp" ng-init="title=''" ng-controller="myctrlr">
+
+    <div class="container">
+        <div class="row">
+
+            <!-- main start -->
+            <!-- ================ -->
+            <div class="main col-md-6">
+
+                <!-- page-title start -->
+                <!-- ================ -->
+                <h1 class="page-title" ng-if="title!=''" >{{title}}</h1>
+                <h1 class="page-title" ng-if="title==''">Blogpost Title</h1>
+                <!-- page-title end -->
+                <!-- blogpost start -->
+                <article class="clearfix blogpost full">
+                    <div class="blogpost-body">
+                        <div class="side">
+                            <div class="post-info">
+                                <span class="day">@DateTime.Now.Day</span>
+                                <span class="month">@DateTime.Now.ToString("MMMM") @DateTime.Now.Year</span>
+                            </div>
+                            <div id="affix"><span class="share">Share This</span><div id="share"></div></div>
+                        </div>
+                        <div class="blogpost-content">
+                            <header>
+                                <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="#">John Doe</a></div>
+                            </header>
+                            <div class="owl-carousel content-slider-with-controls">
+                                <div class="overlay-container">
+                                    <img src="~/Content/images/blog-1.jpg" alt="">
+                                    <a href="~/Content/images/blog-1.jpg" class="popup-img overlay" title="image title"><i class="fa fa-search-plus"></i></a>
+                                </div>
+                                <div class="overlay-container">
+                                    <img src="~/Content/images/blog-2.jpg" alt="">
+                                    <a href="~/Content/images/blog-2.jpg" class="popup-img overlay" title="image title"><i class="fa fa-search-plus"></i></a>
+                                </div>
+                                <div class="overlay-container">
+                                    <img src="~/Content/images/blog-3.jpg" alt="">
+                                    <a href="~/Content/images/blog-3.jpg" class="popup-img overlay" title="image title"><i class="fa fa-search-plus"></i></a>
+                                </div>
+                            </div>
+                          
+                            <div ng-if="!blogbody" >
+                                <p>
+                                    Amet culpa, accusamus. Temporibus animi, consequatur cumque natus, esse consequuntur voluptatibus deleniti necessitatibus autem architecto quaerat tenetur nobis, ea maxime saepe rem doloribus placeat aliquid quod, id fuga ratione error harum ex! Facere vero veniam ducimus nulla sed possimus nobis nisi maiores quibusdam, nam odit quos dolores laborum pariatur distinctio in ex culpa impedit. Corrupti sequi perferendis atque nam debitis ea sunt, vel mollitia voluptas tempora eaque
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                </p>
+                                <p>Inventore, distinctio esse impedit deleniti, magnam minus culpa quia repellendus eligendi nam, omnis qui odio dolorem autem molestias eveniet tempora rem odit possimus! At ea quidem, ipsa ducimus harum quod neque expedita perferendis, quis odio officiis dicta facere qui architecto! Neque, odio quidem a cum perferendis doloribus iure aut ducimus, eveniet commodi unde consequatur iusto error excepturi perspiciatis cupiditate voluptates ad, minus, magnam voluptatem tempora quae at temporibus incidunt. est reprehenderit, voluptates culpa, numquam minima.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, eligendi cum officiis sint eveniet omnis eius quo. Et iusto eos dolor ratione nesciunt praesentium eveniet distinctio repellat. Quas, soluta, ipsam.</p>
+                                <blockquote>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                </blockquote>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse illum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                                <ul class="list-icons">
+                                    <li><i class="icon-check"></i> Eveniet distinctio repellat</li>
+                                    <li><i class="icon-check"></i> Sdipisicing elit</li>
+                                    <li><i class="icon-check"></i> Sint eveniet omnis eius quo</li>
+                                    <li><i class="icon-check"></i> Dolor ratione nesciunt</li>
+                                </ul>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+                            </div>
+                            <div ng-if="blogbody!=''"  >
+                                <p ng-bind-html="trustAsHtml(blogbody)" id="blog"></p>
+                            </div>
+                    </div>
+                    <footer class="clearfix">
+                        <ul class="links pull-left">
+                            <li><i class="fa fa-comment-o pr-5"></i> <a href="#">22 comments</a> |</li>
+                            <li><i class="fa fa-tags pr-5"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a> </li>
+                        </ul>
+                    </footer>
+                        </div>
+                </article>
+                <!-- blogpost end -->
+                <!-- comments start -->
+                <div class="comments">
+                    <h2 class="title">There are 3 comments</h2>
+
+                    <!-- comment start -->
+                    <div class="comment clearfix">
+                        <div class="comment-avatar">
+                            <img src="~/Content/images/avatar.jpg" alt="avatar">
+                        </div>
+                        <div class="comment-content">
+                            <h3>Comment title</h3>
+                            <div class="comment-meta">By <a href="#">admin</a> | Today, 12:31</div>
+                            <div class="comment-body clearfix">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
+                                <a href="blog-post.html" class="btn btn-gray more pull-right"><i class="fa fa-reply"></i> Reply</a>
+                            </div>
+                        </div>
+
+                        <!-- comment start -->
+                        <div class="comment clearfix">
+                            <div class="comment-avatar">
+                                <img src="images/avatar.jpg" alt="avatar">
+                            </div>
+                            <div class="comment-content clearfix">
+                                <h3>Comment title</h3>
+                                <div class="comment-meta">By <a href="#">admin</a> | Today, 12:31</div>
+                                <div class="comment-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
+                                    <a href="blog-post.html" class="btn btn-gray more pull-right"><i class="fa fa-reply"></i> Reply</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- comment end -->
+
+                    </div>
+                    <!-- comment end -->
+                    <!-- comment start -->
+                    <div class="comment clearfix">
+                        <div class="comment-avatar">
+                            <img src="images/avatar.jpg" alt="avatar">
+                        </div>
+                        <div class="comment-content clearfix">
+                            <h3>Comment title</h3>
+                            <div class="comment-meta">By <a href="#">admin</a> | Today, 12:31</div>
+                            <div class="comment-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
+                                <a href="blog-post.html" class="btn btn-gray more pull-right"><i class="fa fa-reply"></i> Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- comment end -->
+
+                </div>
+                <!-- comments end -->
+                <!-- comments form start -->
+                <div class="comments-form">
+                    <h2 class="title">Add your comment</h2>
+                    <form role="form" id="comment-form">
+                        <div class="form-group has-feedback">
+                            <label for="name4">Name</label>
+                            <input type="text" class="form-control" id="name4" placeholder="" name="name4" required>
+                            <i class="fa fa-user form-control-feedback"></i>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label for="subject4">Subject</label>
+                            <input type="text" class="form-control" id="subject4" placeholder="" name="subject4" required>
+                            <i class="fa fa-pencil form-control-feedback"></i>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label for="message4">Message</label>
+                            <textarea class="form-control" rows="8" id="message4" placeholder="" name="message4" required></textarea>
+                            <i class="fa fa-envelope-o form-control-feedback"></i>
+                        </div>
+                        <input type="submit" value="Submit" class="btn btn-default">
+                    </form>
+                </div>
+                <!-- comments form end -->
+
+            </div>
+            <!-- main end -->
+            <!-- sidebar start -->
+            <aside class="col-md-5 col-md-offset-1">
+                <div class="sidebar">
+                    <div class="block clearfix">
+                        <h3 class="title">Write New Blog</h3>
+                        <div class="separator"></div>
+                        <nav>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li>
+                                    <label for="title">Title</label>
+                                <input type="text" class="form-control" id="title" ng-model="title"/>
+                                <label for="blogbody">Article</label><div class="example" >
+    <summernote config="options" ng-model="blogbody"></summernote>
+
+</div></li>
+                                <li><label for="tokenfield">Categories</label><input type="text" ng-change="showblog($event)" class="form-control" id="tokenfield" ng-model="tags"  value="red,green,blue" placeholder="Type something and hit enter" /></li>
+                              
+                                <li><label for="title">Video Embed Link</label>
+<input type="text" class="form-control" id="videoembed" ng-model="VideoEmbed" /></li>
+                                 <li>
+                                <button id="submit" value="Submit Blog" class="btn btn-success">Submit Blog</button></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    @*<div class="block clearfix">
+                        <h3 class="title">Latest tweets</h3>
+                        <div class="separator"></div>
+                        <ul class="tweets">
+                            <li>
+                                <i class="fa fa-twitter"></i>
+                                <p><a href="#">lorem</a> ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, aliquid, et molestias nesciunt <a href="#">http://t.co/dzLEYGeEH9</a>.</p><span>16 hours ago</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-twitter"></i>
+                                <p><a href="#">lorem</a> ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, aliquid, et molestias nesciunt <a href="#">http://t.co/dzLEYGeEH9</a>.</p><span>16 hours ago</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="block clearfix">
+                        <h3 class="title">Featured Post</h3>
+                        <div class="separator"></div>
+                        <div class="image-box">
+                            <div class="overlay-container">
+                                <img src="images/blog-sidebar.jpg" alt="">
+                                <div class="overlay">
+                                    <div class="overlay-links">
+                                        <a href="blog-post.html"><i class="fa fa-link"></i></a>
+                                        <a href="images/blog-sidebar.jpg" class="popup-img-single" title="image title"><i class="fa fa-search-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="image-box-body">
+                                <h3 class="title"><a href="blog-post.html">Post Title</a></h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                                <a href="blog-post.html" class="link"><span>Read More</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block clearfix">
+                        <h3 class="title">Text Sample</h3>
+                        <div class="separator"></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, nemo, necessitatibus, expedita voluptate esse ipsam aliquid blanditiis maxime sequi veniam suscipit atque sapiente cum voluptatum quos mollitia laborum? Esse, officia!</p>
+                    </div>
+                    <div class="block clearfix">
+                        <h3 class="title">Testimonial</h3>
+                        <div class="separator"></div>
+                        <blockquote class="margin-clear">
+                            <p>Design is not just what it looks like and feels like. Design is how it works.</p>
+                            <footer><cite title="Source Title">Steve Jobs </cite></footer>
+                        </blockquote>
+                        <blockquote class="margin-clear">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolorem.</p>
+                            <footer><cite title="Source Title">Steve Doe </cite></footer>
+                        </blockquote>
+                    </div>
+                    <div class="block clearfix">
+                        <h3 class="title">Portfolio</h3>
+                        <div class="separator"></div>
+                        <div class="gallery row">
+                            <div class="gallery-item col-xs-4">
+                                <div class="overlay-container">
+                                    <img src="images/gallery-1.jpg" alt="">
+                                    <a href="portfolio-item.html" class="overlay small">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="gallery-item col-xs-4">
+                                <div class="overlay-container">
+                                    <img src="images/gallery-2.jpg" alt="">
+                                    <a href="portfolio-item.html" class="overlay small">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="gallery-item col-xs-4">
+                                <div class="overlay-container">
+                                    <img src="images/gallery-3.jpg" alt="">
+                                    <a href="portfolio-item.html" class="overlay small">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="gallery-item col-xs-4">
+                                <div class="overlay-container">
+                                    <img src="images/gallery-4.jpg" alt="">
+                                    <a href="portfolio-item.html" class="overlay small">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="gallery-item col-xs-4">
+                                <div class="overlay-container">
+                                    <img src="images/gallery-5.jpg" alt="">
+                                    <a href="portfolio-item.html" class="overlay small">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="gallery-item col-xs-4">
+                                <div class="overlay-container">
+                                    <img src="images/gallery-6.jpg" alt="">
+                                    <a href="portfolio-item.html" class="overlay small">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block clearfix">
+                        <h3 class="title">Tags</h3>
+                        <div class="separator"></div>
+                        <div class="tags-cloud">
+                            <div class="tag">
+                                <a href="#">energy</a>
+                            </div>
+                            <div class="tag">
+                                <a href="#">business</a>
+                            </div>
+                            <div class="tag">
+                                <a href="#">food</a>
+                            </div>
+                            <div class="tag">
+                                <a href="#">fashion</a>
+                            </div>
+                            <div class="tag">
+                                <a href="#">finance</a>
+                            </div>
+                            <div class="tag">
+                                <a href="#">culture</a>
+                            </div>
+                            <div class="tag">
+                                <a href="#">health</a>
+                            </div>
+                            <div class="tag">
+                                <a href="#">sports</a>
+                            </div>
+                            <div class="tag">
+                                <a href="#">life style</a>
+                            </div>
+                            <div class="tag">
+                                <a href="#">books</a>
+                            </div>
+                        </div>
+                    </div>*@
+                  </div>
+            </aside>
+         
+
+        </div>
+    </div>
+</section>
+
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.22/angular-ui-router.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-summernote/0.8.1/angular-summernote.js"></script>
+
+
+<script>
+   
+    $('#tokenfield').tokenfield({
+        autocomplete: {
+
+            source: ['red', 'blue', 'green', 'yellow', 'violet', 'brown', 'purple', 'black', 'white'],
+            delay: 100
+        },
+        showAutocompleteOnFocus: true
+    })
+    //$('#blogbody').summernote();
+  
+    //var app = angular.module('myapp', [])
+    //app.controller('myctrlr', function ($scope, $http, $window) {
+       
+      
+      
+    //    $scope.showblog=
+    //    function(event)
+    //    {
+    //        debugger;
+    //        $scope.text = event.html();
+    //    };
+
+
+
+
+
+       
+    //});
+
+</script>
+<script>
+    //$('#mydiv').summernote();
+  angular.module('myapp', ['ui.router', 'summernote'])
+  .controller('myctrlr', function ($scope,$sce) {
+    $scope.options = {
+      height: 150,
+     
+    };
+    $scope.AddBlog = function () {
+        debugger;
+        var Data = JSON.stringify({ Title: $scope.Title, Tags: $scope.Tags, BlogBody: $scope.finalbody, VideoEmbed: $scope.VideoEmbed });
+        $http({
+            method: "POST",
+            url: '@Url.Action("AddBlog", "Blog")',
+            dataType: 'json',
+            data: Data,
+            headers: { "Content-Type": "application/json" }
+        }).then(function (response) {
+            if (response.data == 0)
+                $scope.SuccessFulRegistration();
+            else {
+                Swal.fire({
+                    position: 'top-center',
+                    type: 'info',
+                    title: "Email aready being used",
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+            }
+
+        }, function (error) {
+            $window.alert(error);
+        });
+    }
+    $scope.trustAsHtml = function (html) {
+        return $sce.trustAsHtml(html);
+    }
+   
+  });
+
+</script>

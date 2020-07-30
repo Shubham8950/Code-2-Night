@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Activate Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="main " data-animation-effect="fadeInDownSmall" data-effect-delay="300">
+    <div class="form-block center-block">
+        <h2 class="title">Notification</h2>
+        <hr>
+        <form class="form-horizontal" role="form" name="form" ng-app="User" ng-controller="UserController">
+          @if (ViewBag.Activated == 0)
+          {
+            <div class="text-center"><h1>Account Activation Failed</h1><h4>Your activation link is expired or not accurate.Try to Send Activation Link Again to your Registered Email Account to verify Again</h4></div>
+            <div class="form-group">
+                <div class="text-center"><input  type="Email" ng-model="Email" required name="Email" /></div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-default" value="Resend Verification Mail" placeholder="Registered Email" ng-click="SendMail()"/> <a class="btn btn-default" href="@Url.Action("Login","User")">Login Now</a>
+                </div>
+            </div>  
+          }
+          else
+          {
+            <div class="text-center"><h1>Account Activated</h1><h3>Your account is successfully activated .</h3><h4>You can Login Now with your account</h4></div>
+            <div class="form-group">
+                <div class="text-center">
+                <a class="btn btn-default" href="@Url.Action("Login","User")">Login Now</a>
+                </div>
+            </div>
+          }
+            
+        </form>
+    </div>
+</div>
+<script>
+  var app = angular.module('User', [])
+        app.controller('UserController', function ($scope, $http, $window) {
+
+            $scope.Email = "";
+            $scope.SendMail = function () {
+
+                if ($scope.Email == "") {
+                    Swal.fire({
+                        position: 'top-center',
+                        type: 'info',
+                        title: "Enter your Registered Email!",
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                    return false;
+                }
+                var post = $http({
+                    method: "POST",
+                    url: '@Url.Action("ResendVerificationMail", "User")',
+                    dataType: 'json',
+                    data: { Email: $scope.Email },
+                    headers: { "Content-Type": "application/json" }
+                }).then(function (response) {
+                    if (response.data == true) {
+                        Swal.fire({
+                            position: 'top-end',
+                            type: 'success',
+                            title: 'Your verification Mail has been sent.',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                       var timer = setTimeout(function() {
+                           window.location.href = '@Url.Action("index","User")';
+        }, 5000);
+
+                    }
+                    else
+                    {
+                        Swal.fire({
+                            position: 'top-center',
+                            type: 'info',
+                            title: "Email your entered is not found.Try with your registered Email!",
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
+                }, function (error) {
+                    $window.alert(error);
+                });
+
+            }
+
+
+
+
+
+
+                    });
+
+                    </script>

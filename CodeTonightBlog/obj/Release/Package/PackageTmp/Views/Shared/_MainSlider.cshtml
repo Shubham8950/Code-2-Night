@@ -1,0 +1,179 @@
+﻿@model List<CodeTonightBlog.DAL.Common.SlideShow>
+@{
+    ViewBag.Title = "_MainSlider";
+  
+}
+
+<div class="banner" id="banner">
+
+    <!-- slideshow start -->
+    <!-- ================ -->
+    <div class="slideshow white-bg">
+
+        <!-- slider revolution start -->
+        <!-- ================ -->
+        <div class="slider-banner-container">
+            <div class="slider-banner-fullscreen">
+                <ul>
+                    <!-- slide 1 start -->
+                    <li data-transition="fade" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on" data-title="Slide 1">
+
+                        <!-- main image -->
+                        <img src="~/Content/images/slider-3-slide-2.jpg" alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+                        <!-- Translucent background -->
+                        <div class="tp-caption light-translucent-bg"
+                             data-x="center"
+                             data-y="bottom"
+                             data-speed="800"
+                             data-start="0"
+                             style="background-color:rgba(255,255,255,0.3);">
+                        </div>
+
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption very_large_text black sfl tp-resizeme"
+                             data-x="center"
+                             data-y="70"
+                             data-speed="600"
+                             data-start="0"
+                             data-end="10000"
+                             data-endspeed="600">
+                            Code2night - Unlimited Options
+                        </div>
+
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption sfr small_thin_dark text-center tp-resizeme"
+                             data-x="center"
+                             data-y="170"
+                             data-speed="600"
+                             data-start="0"
+                             data-end="10000"
+                             data-endspeed="600">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Quia dolorum consectetur doloremque a aliquam ullam labore, ducimus adipisci iste animi <br> natus asperiores sequi assumenda minima blanditiis. Culpa quis consectetur ratione.
+                        </div>
+
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption tp-resizeme sfl"
+                             data-x="center"
+                             data-y="350"
+                             data-speed="600"
+                             data-start="0"
+                             data-end="10000"
+                             data-endspeed="600">
+                            <a href="portfolio-item.html" class="btn btn-dark btn-lg">Read More <i class="fa fa-angle-double-right pl-10"></i></a>
+                        </div>
+
+                    </li>
+                    <!-- slide 1 end -->
+                    <!-- slide 2 start -->
+                    <li data-transition="fade" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on" data-title="Slide 2">
+
+                        <!-- main image -->
+                        <img src="~/Content/images/slider-3-slide-2.jpg" alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+                        <!-- Translucent background -->
+                        <div class="tp-caption light-translucent-bg"
+                             data-x="center"
+                             data-y="bottom"
+                             data-speed="800"
+                             data-start="0"
+                             style="background-color:rgba(255,255,255,0.3);">
+                        </div>
+
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption very_large_text black sfl tp-resizeme"
+                             data-x="center"
+                             data-y="70"
+                             data-speed="600"
+                             data-start="0"
+                             data-end="10000"
+                             data-endspeed="600">
+                            Code2night - Powerful Bootstrap Theme
+                        </div>
+
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption sfr small_thin_dark text-center tp-resizeme"
+                             data-x="center"
+                             data-y="170"
+                             data-speed="600"
+                             data-start="0"
+                             data-end="10000"
+                             data-endspeed="600">
+                            Quia dolorum consectetur doloremque a aliquam ullam labore, ducimus adipisci iste animi <br> natus asperiores sequi assumenda minima blanditiis. Culpa quis consectetur ratione.
+                        </div>
+
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption sfl tp-resizeme"
+                             data-x="center"
+                             data-y="300"
+                             data-speed="600"
+                             data-start="0"
+                             data-end="10000"
+                             data-endspeed="600">
+                            <a href="portfolio-item.html" class="btn btn-dark btn-lg">Read More <i class="fa fa-angle-double-right pl-10"></i></a>
+                        </div>
+
+                    </li>
+                    @foreach (var item in Model)
+                    {
+                        
+                    <li data-transition="fade" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on" data-title="Slide 3">
+
+                        <!-- main image -->
+                        <img src="~/Content/images/slider-3-slide-2.jpg" alt="Code2night" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+                        <!-- Translucent background -->
+                        <div class="tp-caption light-translucent-bg"
+                             data-x="center"
+                             data-y="bottom"
+                             data-speed="800"
+                             data-start="0"
+                             style="background-color:rgba(255,255,255,0.3);">
+                        </div>
+
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption very_large_text black sfl tp-resizeme"
+                             data-x="center"
+                             data-y="70"
+                             data-speed="600"
+                             data-start="0"
+                             data-end="10000"
+                             data-endspeed="600">
+                            @item.Title
+                        </div>
+
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption sfr small_thin_dark text-center tp-resizeme"
+                             data-x="center"
+                             data-y="170"
+                             data-speed="600"
+                             data-start="0"
+                             data-end="10000"
+                             data-endspeed="600">
+                            @item.Tagline
+                        </div>
+
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption tp-resizeme sfl"
+                             data-x="center"
+                             data-y="350"
+                             data-speed="600"
+                             data-start="0"
+                             data-end="10000"
+                             data-endspeed="600">
+                            <a href="portfolio-item.html" class="btn btn-dark btn-lg">Read More <i class="fa fa-angle-double-right pl-10"></i></a>
+                        </div>
+
+                    </li>
+                    }
+                    <!-- slide 2 end -->
+
+                </ul>
+            </div>
+        </div>
+        <!-- slider revolution end -->
+
+    </div>
+    <!-- slideshow end -->
+
+</div>

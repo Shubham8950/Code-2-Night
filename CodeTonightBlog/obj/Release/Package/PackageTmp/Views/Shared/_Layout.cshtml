@@ -1,0 +1,415 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114851264-8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-114851264-8');
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <link rel="shortcut icon" href="../Content/images/favicon.ico">
+
+    <!-- Web Fonts -->
+    @*<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>*@
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+    @Styles.Render("~/Content/cssMain")
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+
+    <link href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet">
+
+
+    @Scripts.Render("~/bundles/Tags")
+    <style>
+        .object-non-visible {
+            opacity: 1 !important;
+            filter: alpha(opacity=0);
+        }
+
+        #logo {
+            font-size: 29px;
+            background: -webkit-linear-gradient(#e84c3d, #e84c3d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 10px;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        .loadersmallbg {
+            background: rgba(0, 0, 0, .2);
+            height: auto;
+            width: 100%;
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            z-index: 100;
+        }
+
+        .loadersmall {
+            border: 5px solid #f3f3f3;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+            border-top: 5px solid #555;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            z-index: 999;
+            position: fixed;
+            left: 0px;
+            right: 0;
+            margin: auto;
+            top: 250px;
+        }
+
+        .bg-gr {
+            background: rgba(191,191,191,0.6);
+            width: 100%;
+            padding: 0px;
+            position: fixed;
+            z-index: 777;
+            height: 100%;
+            left: 0px;
+            right: 0;
+            top: 0;
+        }
+
+        @@keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        var ShowLoader = function () {
+            $("#DivLoader_SMS").show();
+        }
+        var HideLoader = function () {
+            $("#DivLoader_SMS").hide();
+        }
+    </script>
+
+</head>
+<body>
+    <div class="loadersmallbg" style="display: none"></div>
+    <div class="bg-gr" id="DivLoader_SMS" clientidmode="Static" style="display: none">
+        <div class="loadersmall"></div>
+    </div>
+
+    <header class="header fixed header-small clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+
+                    <!-- header-left start -->
+                    <!-- ================ -->
+                    <div class="header-left clearfix">
+
+                        <!-- logo -->
+                        <div class="logo">
+                            @* <h1 id="logo"> Code_ Tonight</h1> *@
+                            <a href="@Url.Action("Portal","Home")"><img id="logo" src="/Content/images/logo_2.png" alt="Code2night"></a>
+                        </div>
+
+                        <!-- name-and-slogan -->
+                        <div class="site-slogan">
+
+                        </div>
+
+                    </div>
+                    <!-- header-left end -->
+
+                </div>
+                <div class="col-md-9">
+
+                    <!-- header-right start -->
+                    <!-- ================ -->
+                    <div class="header-right clearfix">
+
+                        <!-- main-navigation start -->
+                        <!-- ================ -->
+                        <div class="main-navigation animated">
+
+                            <!-- navbar start -->
+                            <!-- ================ -->
+                            <nav class="navbar navbar-default" role="navigation">
+                                <div class="container-fluid">
+
+                                    <!-- Toggle get grouped for better mobile display -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+                                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li class="active">
+                                                <a href="@Url.Action("index","Users")">Home</a>
+
+                                            </li>
+
+                                            <li class="dropdown" style="display:none">
+                                                <a href="portfolio-3col.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials - List</a>
+                                                <ul class="dropdown-menu">
+
+                                                    <li><a href="portfolio-full.html">Asp.Net</a></li>
+                                                    <li><a href="portfolio-item.html">Sql Server</a></li>
+                                                    <li><a href="portfolio-item-2.html">Angularjs</a></li>
+                                                    <li><a href="portfolio-item-3.html">Jquery</a></li>
+                                                    <li><a href="portfolio-item-3.html">Ajax</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="dropdown" style="display:none">
+                                                <a class="dropdown-toggle" data-toggle="dropdown">Blog</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="@Url.Action("Blogs","Blog")">Blogs </a></li>
+                                                    <li><a href="@Url.Action("Login","Users")">Blog post</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Blogs","Blog")">Blogs </a>
+
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Login","Users")">Post Blog</a>
+
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Register","Users")">Register</a>
+
+                                            </li>
+
+
+                                            <li>
+                                                <a href="@Url.Action("Login","Users")">Login</a>
+                                            </li>
+                                            <li class="dropdown" style="display:none">
+                                                <a href="shop-listing-3col.html" class="dropdown-toggle" data-toggle="dropdown">Users</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="@Url.Action("Register","Users")">Register </a></li>
+                                                    <li><a href="@Url.Action("Login","Users")">Login</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("ContactUs","Users")">Contact Us</a>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </nav>
+                            <!-- navbar end -->
+
+                        </div>
+                        <!-- main-navigation end -->
+
+                    </div>
+                    <!-- header-right end -->
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="">
+        @RenderBody()
+
+        <footer id="footer">
+
+            <!-- .footer start -->
+            <!-- ================ -->
+            <div class="footer">
+                <div class="container" style="margin-bottom:1%">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="footer-content">
+                                <div class="logo-footer">
+                                    <a href="@Url.Action("Portal","Home")"><img id="logo" src="/Content/images/logo_white.png" alt="Code2night" style="height: 35px;"></a>
+                                    @*<h1 id="logo"> logo_white</h1>*@
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p>Welcome To Code2night, A common place for sharing your programming knowledge,Blogs and Videos</p>
+                                        <ul class="social-links circle">
+                                            <li class="facebook"><a target="_blank" href="http://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                                            <li class="twitter"><a target="_blank" href="http://www.twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                            <li class="googleplus"><a target="_blank" href="http://plus.google.com/"><i class="fa fa-google-plus"></i></a></li>
+                                            <li class="skype"><a target="_blank" href="http://www.skype.com/"><i class="fa fa-skype"></i></a></li>
+                                            <li class="linkedin"><a target="_blank" href="http://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <ul class="list-icons">
+                                            <li><i class="fa fa-map-marker pr-10"></i> Kurukshetra</li>
+                                            @*<li><i class="fa fa-phone pr-10"></i></li>*@
+
+                                            <li><i class="fa fa-envelope-o pr-10"></i> info@Code2night.com</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="page-about.html" style="display:none" class="link"><span>Read More</span></a>
+                            </div>
+                        </div>
+                        <div class="space-bottom hidden-lg hidden-xs"></div>
+                        <div class="col-sm-6 col-md-2">
+                            <div class="footer-content">
+                                <h2>Links</h2>
+                                <nav>
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li><a href="@Url.Action("index","Users")">Home</a></li>
+                                        <li class="active"><a href="@Url.Action("Blogs","Blog")">Blog</a></li>
+                                        <li><a href="@Url.Action("Login","Users")">Login</a></li>
+                                        <li><a href="@Url.Action("Register","Users")">SignUp</a></li>
+                                        <li><a href="@Url.Action("ContactUs","Users")">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-md-offset-1 mb-1">
+
+                            <div class="footer-content">
+                                <h2>Popular Tags</h2>
+                                <div class="tags-cloud">
+                                    <div class="tag">
+                                        <a href="#">energy</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">business</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">food</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">fashion</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">finance</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">culture</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">health</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">sports</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">life style</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">books</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">lorem</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">ipsum</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">responsive</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">style</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">finance</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">technology</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">support</a>
+                                    </div>
+                                    <div class="tag">
+                                        <a href="#">sports</a>
+                                    </div>
+                                    
+                                </div>
+
+                               
+                            </div>
+                        </div>
+                        <div class="space-bottom hidden-lg hidden-xs"></div>
+                    </div>
+                </div>
+                <!-- .footer end -->
+                <!-- .subfooter start -->
+                <!-- ================ -->
+                <div class="subfooter">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Copyright © @DateTime.Now.Year  by <a target="_blank">Code2night</a>. All Rights Reserved</p>
+                            </div>
+                            <div class="col-md-6">
+                                <nav class="navbar navbar-default" role="navigation">
+                                    <!-- Toggle get grouped for better mobile display -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-2">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                                        <ul class="nav navbar-nav">
+                                            <li><a href="@Url.Action("index","Users")">Home</a></li>
+                                            <li><a href="@Url.Action("Blogs","Blog")">Blog</a></li>
+                                            <li><a href="@Url.Action("Login","Users")">Login</a></li>
+                                            <li><a href="@Url.Action("Register","Users")">SignUp</a></li>
+                                            <li><a href="@Url.Action("ContactUs","Users")">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- .subfooter end -->
+
+        </footer>
+    </div>
+
+
+    @*<script src="~/Content/js/Jquery.min.js"></script>*@
+    @Scripts.Render("~/bundles/Layout")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

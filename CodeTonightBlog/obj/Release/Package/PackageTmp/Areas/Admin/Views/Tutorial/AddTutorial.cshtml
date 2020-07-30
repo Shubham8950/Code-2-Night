@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "AddTutorial";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/angular.min.js"></script>
+
+
+
+
+
+<style>
+    .mytitle {
+        position: absolute;
+        text-align: center;
+        padding: 15%;
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Summernote</title>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+</head>
+<body>
+    <div id="summernote"><p>Hello Summernote</p></div>
+    <script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+    </script>
+</body>
+</html>
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Add Tutorial</h4>
+
+           @using (Ajax.BeginForm("Addtutorial", "Tutorial", new AjaxOptions { OnSuccess = "onsucess", OnFailure = "onfailure",HttpMethod="post" }))
+           {
+
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Topic Name</label>
+                    <input type="text" class="form-control" name="TopicName" ng-model="TopicName" ng-init="Title='Demo Title'" value="DEmo TItle" id="TopicName" placeholder="Topic Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Technology</label>
+                    <input type="text"  placeholder="Add Your Blog " class="form-control" name="Technology" ng-model="Technology" ng-init="Tagline='Demo Tagline'" id="Technology" placeholder="Technology">
+                </div>
+                    <button type="submit" id="mybutton" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                    }
+                </div>
+
+        <div class="card-body">
+            <h4 class="card-title">Your Slide Demo</h4>
+            <div class="banner" id="banner">
+
+                <!-- slideshow start -->
+                <!-- ================ -->
+                <div class="mybanner">
+
+                    <div class="mytitle" style="width:95%;max-width:854px;"><h1 style="color:black">{{Title}} </h1><h4 style="color:orangered">{{Tagline}}</h4></div>
+                    <img src="{{selectedimage}}" id="myimg" alt="slidebg1" data-bgposition="center top" style="min-width:840px;max-height:500px;max-width:854px;" data-bgfit="cover" data-bgrepeat="no-repeat">
+                </div>
+                <!-- slideshow end -->
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+<script>
+   
+
+    function  onsucess(data)
+    {
+        alert("Save Sucessfully");
+    }
+    function onfailure(data)
+    {
+        alert("Insert Failed")
+    }
+
+</script>
+

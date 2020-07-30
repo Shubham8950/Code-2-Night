@@ -1,0 +1,87 @@
+﻿@model List<CodeTonightBlog.DAL.Common.Tutorial>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <link rel="shortcut icon" href="../Content/images/favicon.ico">
+
+    <!-- Web Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+
+
+    <!-- Bootstrap core CSS -->
+    @*<script src="~/Content/plugins/jquery.min.js"></script>*@
+
+    @Scripts.Render("~/bundles/Tags")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+    @Styles.Render("~/Content/css")
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+
+    <link href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+    <link href="../Content/plugins/rs-plugin/css/settings.css" media="screen" rel="stylesheet">
+    <link href="../Content/plugins/rs-plugin/css/extralayers.css" media="screen" rel="stylesheet">
+    <style>
+        .object-non-visible {
+            opacity: 1 !important;
+            filter: alpha(opacity=0);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- main-container start -->
+    <!-- ================ -->
+    <section class="main-container">
+
+        <div class="container">
+            <div class="row">
+
+                <!-- sidebar start -->
+                <aside class="col-md-3" style="position:fixed">
+                    <div class="sidebar">
+                        <div class="block clearfix">
+                            <h3 class="title">Sidebar menu</h3>
+                            <div class="separator"></div>
+                            <nav>
+                                <ul class="nav nav-pills nav-stacked">
+                                    @foreach (var item in Model)
+                                    {
+                                        <li><a href="index.html">@item.TopicName</a></li>
+                                    }
+                                   
+                                </ul>
+                            </nav>
+                        </div>
+                        
+
+                    </div>
+                </aside>
+                <!-- sidebar end -->
+                <!-- main start -->
+                <!-- ================ -->
+                <aside class="col-md-9">
+                    @RenderBody()
+                </aside>
+            
+                <!-- main end -->
+
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+</html>

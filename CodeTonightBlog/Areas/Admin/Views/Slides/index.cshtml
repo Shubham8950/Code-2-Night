@@ -1,0 +1,63 @@
+﻿@model List<CodeTonightBlog.DAL.Common.SlideShow>
+@{
+    ViewBag.Title = "MainSlides";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-panel" style="width:100%;">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Home Slides</h4>
+                        <div class="row grid-margin">
+                            <div class="col-12">
+                                <a class="btn btn-warning text-white" href="@Url.Action("NewSlides","Slides")"  >Add Slides</a>
+                             
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table id="order-listing" class="table">
+                                        <thead>
+                                            <tr class="bg-dark text-white">
+                                                <th>Title</th>
+                                                <th>Tagline</th>
+                                                <th>Logo</th>
+                                                <th>Action</th>
+                                           
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var slide in Model)
+                                            {
+                                            <tr>
+                                                <td>@slide.Title</td>
+                                                <td>@slide.Tagline</td>
+                                                <td><img class="img-responsive" style="width:100px;height:100px" src="@Url.Content("~/Uploads/"+slide.Logo)"/></td>
+                                           
+                                                <td class="text-right">
+                                                    <a class="btn btn-dark" href="@Url.Action("EditSlides","Slides",new {id=slide.Id})">
+                                                        <i class="mdi mdi-eye text-primary"></i>Edit
+                                                    </a>
+                                                    <a class="btn btn-dark" href="@Url.Action("RemoveSlide","Slides",new {id=slide.Id})">
+                                                        <i class="mdi mdi-close text-danger"></i>Remove
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+

@@ -1,0 +1,294 @@
+﻿@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Areas/Portal/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/Tags/bootstrap-tokenfield.js"></script>
+<script src="~/Content/js/summernote.js"></script>
+<style>
+    .btn-default {
+    background-color: white !important;
+    color: black !important;
+    border-color: black !important;
+}
+    .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    color: #0066ff !important;
+    background-color: #cd3c2e;
+    border-color: #cd3c2e;
+}
+ .note-toolbar {
+    position: static !important;
+    z-index: 500;
+}
+      .btn-default:hover {
+    background-color: white !important;
+    color: black !important;
+    border-color: black !important;
+}
+    .panel-heading a {
+    font-weight: 400;
+    padding: 12px 35px 12px 15px;
+    display: inline-block;
+    width: 100%;
+    background-color: transparent;
+    color: #ffffff;
+    position: relative;
+    text-decoration: none;
+}
+    .btn.btn-sm {
+    padding: 8px;
+    font-size: 12px;
+    min-width: 55px;
+}
+    .btn
+    {
+       padding: 4px 2px !important;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jquery-ajax-unobtrusive@3.2.6/dist/jquery.unobtrusive-ajax.min.js"></script>
+<section class="main-container" >
+
+    <div class="container">
+        <div class="row">
+
+            <!-- main start -->
+            <!-- ================ -->
+            <div class="main col-md-6">
+
+                <!-- page-title start -->
+                <!-- ================ -->
+               
+                <h1 class="page-title" id="Title">Blogpost Title</h1>
+                <!-- page-title end -->
+                <!-- blogpost start -->
+                <article class="clearfix blogpost full">
+                    <div class="blogpost-body">
+                        <div class="side">
+                            <div class="post-info">
+                                <span class="day">@DateTime.Now.Day</span>
+                                <span class="month">@DateTime.Now.ToString("MMMM") @DateTime.Now.Year</span>
+                            </div>
+                            <div id="affix"><span class="share">Share This</span><div id="share"></div></div>
+                        </div>
+                        <div class="blogpost-content">
+                            <header>
+                                <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="#">@(string.IsNullOrEmpty(Convert.ToString(Session["UserName"]))?"Author": Convert.ToString(Session["UserName"]))</a></div>
+                            </header>
+                         <div id="demoblog" >
+                                <p>
+                                    Amet culpa, accusamus. Temporibus animi, consequatur cumque natus, esse consequuntur voluptatibus deleniti necessitatibus autem architecto quaerat tenetur nobis, ea maxime saepe rem doloribus placeat aliquid quod, id fuga ratione error harum ex! Facere vero veniam ducimus nulla sed possimus nobis nisi maiores quibusdam, nam odit quos dolores laborum pariatur distinctio in ex culpa impedit. Corrupti sequi perferendis atque nam debitis ea sunt, vel mollitia voluptas tempora eaque
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                </p>
+                                <p>Inventore, distinctio esse impedit deleniti, magnam minus culpa quia repellendus eligendi nam, omnis qui odio dolorem autem molestias eveniet tempora rem odit possimus! At ea quidem, ipsa ducimus harum quod neque expedita perferendis, quis odio officiis dicta facere qui architecto! Neque, odio quidem a cum perferendis doloribus iure aut ducimus, eveniet commodi unde consequatur iusto error excepturi perspiciatis cupiditate voluptates ad, minus, magnam voluptatem tempora quae at temporibus incidunt. est reprehenderit, voluptates culpa, numquam minima.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, eligendi cum officiis sint eveniet omnis eius quo. Et iusto eos dolor ratione nesciunt praesentium eveniet distinctio repellat. Quas, soluta, ipsam.</p>
+                                <blockquote>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                </blockquote>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse illum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                                <ul class="list-icons">
+                                    <li><i class="icon-check"></i> Eveniet distinctio repellat</li>
+                                    <li><i class="icon-check"></i> Sdipisicing elit</li>
+                                    <li><i class="icon-check"></i> Sint eveniet omnis eius quo</li>
+                                    <li><i class="icon-check"></i> Dolor ratione nesciunt</li>
+                                </ul>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+                            </div>
+                            <div id="blogbody" style="display:none"  >
+                                <p  id="blog"></p>
+                            </div>
+                    </div>
+                    <footer class="clearfix">
+                        <ul class="links pull-left">
+                            <li><i class="fa fa-comment-o pr-5"></i> <a href="#">22 comments</a> |</li>
+                            <li><i class="fa fa-tags pr-5"></i> <a href="#" id="mytags" class="text-capitalize"></a><a href="#" id="demotags" class="text-capitalize" >tags1, tag2</a></li>
+                        </ul>
+                    </footer>
+                        </div>
+                </article>
+              
+            </div>
+            <!-- main end -->
+            <!-- sidebar start -->
+            <aside class="col-md-5 col-md-offset-1">
+                <div class="sidebar">
+                    <div class="block clearfix">
+                        <h3 class="title">Write New Blog</h3>
+                        <div class="separator"></div>
+                        <nav>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li>
+                                    <label for="title">Title</label>
+                                <input type="text" class="form-control" onkeydown="ChangeTitle(this)" onkeyup="ChangeTitle(this)" id="title" />
+                                <label for="blogbody">Article</label><div class="example" >
+                                    <div class="summernote"></div>
+  
+</div></li>
+                                <li><label for="tokenfield">Categories</label><input type="text"  class="form-control" id="tokenfield" onchange="ChangeTags(this)"  value="" placeholder="Type Tags and hit enter" /></li>
+                               <li><label for="title">Video Embed Link</label>
+<input type="text" class="form-control" id="videoembed"  /></li>
+                              
+                                 <li>
+                          
+                                <button id="submit" value="Submit Blog" onclick="SaveBlog()" class="btn btn-success">Submit Blog</button></li>
+                            </ul>
+                        </nav>
+                    </div>
+    
+                    </div>
+            </aside>
+         
+
+        </div>
+    </div>
+</section>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="~/Content/js/summernote.js"></script>
+
+<script>
+   $(document).ready(function(){
+       $(".summernote").summernote({
+           callbacks: {
+               onChange: function (contents, $editable) {
+                   console.log('onChange:', contents, $editable);
+                   if (contents == "")
+                   {
+                       $("#blog").hide();
+                       $("#demoblog").show();
+
+                   }
+                   else
+                   {
+                       $("#blog").html(contents);
+                       $("#blog").show();
+                       $("#blogbody").show();
+                       $("#demoblog").hide();
+                   }
+
+               }
+           }
+       });
+
+
+
+   });
+   var ChangeTags = function (ctrl) {
+       console.log($(ctrl).val());
+       if ($(ctrl).val() == "") {
+           $("#mytags").hide();
+           $("#demotags").show();
+       }
+       else {
+           $("#mytags").html($(ctrl).val());
+           $("#mytags").show();
+           $("#demotags").hide();
+       }
+   }
+   var ChangeTitle=function(ctrl)
+   {
+       if ($(ctrl).val() == "")
+       {
+           $("#Title").html('BlogPost Title');
+       }
+       else
+       {
+           $("#Title").html($(ctrl).val());
+       }
+
+   }
+    $('#tokenfield').tokenfield({
+        autocomplete: {
+
+            source: [],
+            delay: 100
+        },
+        showAutocompleteOnFocus: true
+    })
+
+    var SaveBlog=function()
+    {
+        debugger;
+        var promises = GetAjaxDataPromise('@Url.Action("AddBlog", "Blog",new {area="Portal" })', { Title: $("#title").val(), Tags: $('#tokenfield').val(), BlogBody: $("#blog").html(), VideoEmbed: $("#videoembed").val() });
+        promises.done(function (response) {
+            console.log(response);
+            console.log();
+            if (response.data == 0) {
+            }
+            else {
+                Swal.fire({
+                    position: 'top-end',
+                    type: 'success',
+                    title: "Blog Submitted Successfully",
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+                setTimeout(
+                    function () {
+                        window.location.href = '@Url.Action("Blog","Blog")';
+                    }
+                , 3000);
+
+            }
+        }).fail(function (response) {
+
+            console.log(response);
+        });
+
+
+      
+    }
+    //$('#summernote').summernote({
+    //    callbacks: {
+    //        onChange: function (contents, $editable) {
+    //            console.log('onChange:', contents, $editable);
+    //        }
+    //    }
+    //});
+</script>
+@*<script>
+   
+  angular.module('myapp', ['ui.router', 'summernote'])
+  .controller('myctrlr', function ($scope, $sce, $http) {
+    $scope.options = {
+      height: 150,
+     
+    };
+    $scope.AddBlog = function (tags) {
+        debugger;
+        var Data = JSON.stringify({ Title: $scope.title, Tags: $('#mytag').text(), BlogBody: $scope.blogbody, VideoEmbed: $scope.VideoEmbed });
+        $http({
+            method: "POST",
+            url: '@Url.Action("AddBlog", "Blog")',
+            dataType: 'json',
+            data: Data,
+            headers: { "Content-Type": "application/json" }
+        }).then(function (response) {
+            if (response.data == 0)
+                $scope.SuccessFulRegistration();
+            else {
+                setTimeout(function () {
+                    Swal.fire({
+                        position: 'top-end',
+                        type: 'success',
+                        title: "Blog Submitted Successfully",
+                        showConfirmButton: false,
+                        timer: 3000
+                    }, function () {
+                        window.location = '@Url.Action("Blog","Blog")';
+                    });
+                }, 3000);
+             
+               
+            }
+
+        }, function (error) {
+            $window.alert(error);
+        });
+    }
+    $scope.trustAsHtml = function (html) {
+        return $sce.trustAsHtml(html);
+    }
+   
+  });
+
+</script>*@

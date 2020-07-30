@@ -1,0 +1,159 @@
+﻿@model CodeTonightBlog.DAL.Common.MyBlogs
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<string> List = new List<string>();
+    foreach (var item in Model.BlogsList.Select(x => x.Tags.Split(',')).ToList())
+    {
+
+        foreach (var tag in item)
+        {
+            List.Add(tag.Trim());
+
+        }
+    }
+}
+<script id="dsq-count-scr" src="//codetonight.disqus.com/count.js"></script>
+<style>
+    #disqus_thread {
+        overflow: hidden;
+    }
+  iframe {
+    margin-bottom: -54px;
+  }
+
+</style>
+
+
+<div class="page-intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
+                    <li class="active">Blogpost</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- page-intro end -->
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+
+    <div class="container">
+        <div class="row">
+
+            <!-- main start -->
+            <!-- ================ -->
+            <div class="main col-md-8">
+
+                <!-- page-title start -->
+                <!-- ================ -->
+                <h1 class="page-title">@Model.MyBlog.Title</h1>
+                <!-- page-title end -->
+                <!-- blogpost start -->
+                <article class="clearfix blogpost full">
+                    <div class="blogpost-body">
+                        <div class="side">
+                            <div class="post-info">
+                                <span class="day">@Model.MyBlog.Date.ToString("dd")</span>
+                                <span class="month">@Model.MyBlog.Date.ToString("MMM")<br />@Model.MyBlog.Date.ToString("yyyy")</span>
+                            </div>
+                            <div id="affix"><span class="share" style="display:none" >Share This</span><div id="share"><div id="share" class="sharrre"><ul class="social-links clearfix"><li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li><li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li></ul></div></div></div>
+                        </div>
+                        <div class="blogpost-content">
+                            <header>
+                                <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="~/Blog/Author/@Model.MyBlog.AuthorId-@Model.MyBlog.AuthorName">@Model.MyBlog.AuthorName</a></div>
+                            </header>
+                            @*<div class="owl-carousel content-slider-with-controls">
+                                <div class="overlay-container">
+                                    <img src="images/blog-1.jpg" alt="">
+                                    <a href="images/blog-1.jpg" class="popup-img overlay" title="image title"><i class="fa fa-search-plus"></i></a>
+                                </div>
+                                <div class="overlay-container">
+                                    <img src="images/blog-2.jpg" alt="">
+                                    <a href="images/blog-2.jpg" class="popup-img overlay" title="image title"><i class="fa fa-search-plus"></i></a>
+                                </div>
+                                <div class="overlay-container">
+                                    <img src="images/blog-3.jpg" alt="">
+                                    <a href="images/blog-3.jpg" class="popup-img overlay" title="image title"><i class="fa fa-search-plus"></i></a>
+                                </div>
+                            </div>*@
+                            <div>
+                                <p>
+                                    @Html.Raw(Model.MyBlog.BlogBody)
+                                </p>
+                            </div> 
+                           
+                        </div>
+                    </div>
+                    <footer class="clearfix">
+                        <ul class="links pull-left">
+                            <li><i class="fa fa-comment-o pr-5"></i><a href="~/Blog/MyBlog/@Model.MyBlog.BlogUrl#disqus_thread"></a> |</li>
+                            <li><i class="fa fa-tags pr-5"></i> 
+                                @foreach (var str in Model.MyBlog.Tags.Split(',').ToList())
+                                {
+                                    <a href="~/Blog/Tags/@str">@str @(Model.MyBlog.Tags.Split(',').ToList().IndexOf(str).Equals(Model.MyBlog.Tags.Split(',').ToList().Count - 1) ? "" : ",")</a>
+                                }
+                            
+                             </li>
+                        </ul>
+                    </footer>
+                </article>
+               
+                <div id="mycmnt"><h2 class="title">Comments</h2><div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://codetonight.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript> <a href="https://disqus.com/?ref_noscript"></a></noscript>
+</div>
+            </div>
+            <!-- main end -->
+            <!-- sidebar start -->
+            <aside class="col-md-3 col-md-offset-1">
+                <div class="sidebar">
+              
+                
+                    
+                    
+                    
+                    <div class="block clearfix">
+                        <h3 class="title">Tags</h3>
+                        <div class="separator"></div>
+                        <div class="tags-cloud">
+                 
+                            
+                            @foreach (var str in List.Distinct().ToList())
+                            {
+                                <div class="tag">
+                                    <a href="~/Blog/Tags/@str">@str</a>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    
+                </div>
+            </aside>
+            <!-- sidebar end -->
+
+        </div>
+    </div>
+    <script id="dsq-count-scr" src="//codetonight.disqus.com/count.js" async></script>
+</section>

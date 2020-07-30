@@ -1,0 +1,51 @@
+﻿10/28/2019 10:19:17 AM C:\Users\Shubham\AppData\Local\Temp\Temporary ASP.NET Files\root\9b7b88ef\d5f987ae\App_Web_index.cshtml.9478e9fb.wxzqrdv8.0.cs(28): error CS0246: The type or namespace name 'CodeTonightBlog' could not be found (are you missing a using directive or an assembly reference?) 
+10/29/2019 3:18:39 AM A potentially dangerous Request.Form value was detected from the client (BlogBody="<p>Amet culpa, accus..."). 
+10/29/2019 3:24:49 AM A potentially dangerous Request.Form value was detected from the client (BlogBody="<p>Amet culpa, accus..."). 
+10/29/2019 3:27:19 AM A potentially dangerous Request.Form value was detected from the client (BlogBody="<p>Amet culpa, accus..."). 
+10/29/2019 3:29:48 AM A potentially dangerous Request.Form value was detected from the client (BlogBody="<p>Amet culpa, accus..."). 
+10/29/2019 3:31:07 AM A potentially dangerous Request.Form value was detected from the client (BlogBody="<p>Amet culpa, accus..."). 
+10/29/2019 3:38:47 AM E:\CodeTonightBlog\CodeTonightBlog\Areas\Portal\Views\Blog\Blog.cshtml(211): error CS1012: Too many characters in character literal 
+10/29/2019 3:40:31 AM A potentially dangerous Request.Form value was detected from the client (BlogBody="<p>Amet culpa, accus..."). 
+10/29/2019 4:06:54 AM Procedure or function 'sprBlogs' expects parameter '@BlogBody', which was not supplied. 
+10/29/2019 4:08:34 AM Error parsing column 8 (Id=<p>Amet culpa, accusamus. Temporibus animi, consequatur cumque natus, esse 
+consequuntur voluptatibus deleniti necessitatibus autem architecto 
+quaerat tenetur nobis, ea maxime saepe rem doloribus placeat aliquid 
+quod, id fuga ratione error harum ex! Facere vero veniam ducimus nulla 
+sed possimus nobis nisi maiores quibusdam, nam odit quos dolores laborum
+ pariatur distinctio in ex culpa impedit. Corrupti sequi perferendis 
+atque nam debitis ea sunt, vel mollitia voluptas tempora eaque
+                                    Lorem ipsum dolor sit amet, 
+consectetur adipisicing elit.
+                                </p> - String) System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.String.System.IConvertible.ToInt32(IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType)
+   at Deserializede91a245-63df-4545-93b4-d8dee4185264(IDataReader )
+10/29/2019 4:08:49 AM C:\Users\Shubham\AppData\Local\Temp\Temporary ASP.NET Files\root\9b7b88ef\d5f987ae\App_Web_blogs.cshtml.4ca05e98.vkyvq5ue.0.cs(31): error CS0234: The type or namespace name 'MyBlogs' does not exist in the namespace 'CodeTonightBlog.DAL.Common' (are you missing an assembly reference?) 
+10/29/2019 4:09:13 AM C:\Users\Shubham\AppData\Local\Temp\Temporary ASP.NET Files\root\9b7b88ef\d5f987ae\App_Web_blogs.cshtml.4ca05e98.hmdf-hqb.0.cs(31): error CS0234: The type or namespace name 'MyBlogs' does not exist in the namespace 'CodeTonightBlog.DAL.Common' (are you missing an assembly reference?) 
+10/29/2019 4:10:23 AM C:\Users\Shubham\AppData\Local\Temp\Temporary ASP.NET Files\root\9b7b88ef\d5f987ae\App_Web_blogs.cshtml.4ca05e98.agnt51x_.0.cs(31): error CS0234: The type or namespace name 'MyBlogs' does not exist in the namespace 'CodeTonightBlog.DAL.Common' (are you missing an assembly reference?) 
+10/29/2019 4:12:22 AM Object reference not set to an instance of an object. 
+10/29/2019 4:30:04 AM Object reference not set to an instance of an object. 
+10/29/2019 4:38:46 AM C:\Users\Shubham\AppData\Local\Temp\Temporary ASP.NET Files\root\9b7b88ef\d5f987ae\App_Web_blogdetail.cshtml.7a4ca47a.ibq-7but.0.cs(31): error CS0234: The type or namespace name 'MyBlogs' does not exist in the namespace 'CodeTonightBlog.DAL.Common' (are you missing an assembly reference?) 
+10/29/2019 4:40:20 AM C:\Users\Shubham\AppData\Local\Temp\Temporary ASP.NET Files\root\9b7b88ef\d5f987ae\App_Web_blogdetail.cshtml.7a4ca47a.s4flkdqf.0.cs(31): error CS0234: The type or namespace name 'MyBlogs' does not exist in the namespace 'CodeTonightBlog.DAL.Common' (are you missing an assembly reference?) 
+10/29/2019 4:41:31 AM C:\Users\Shubham\AppData\Local\Temp\Temporary ASP.NET Files\root\9b7b88ef\d5f987ae\App_Web_blogdetail.cshtml.7a4ca47a.dzpd3vs5.0.cs(31): error CS0234: The type or namespace name 'MyBlogs' does not exist in the namespace 'CodeTonightBlog.DAL.Common' (are you missing an assembly reference?) 
+10/29/2019 4:48:33 AM E:\CodeTonightBlog\CodeTonightBlog\Areas\Portal\Views\Blog\MyBlogs.cshtml(59): error CS1061: 'Blog' does not contain a definition for 'AuhtorName' and no extension method 'AuhtorName' accepting a first argument of type 'Blog' could be found (are you missing a using directive or an assembly reference?) 
+10/29/2019 5:19:26 AM Object reference not set to an instance of an object. 
+10/29/2019 5:33:39 AM Object reference not set to an instance of an object. 
+10/29/2019 10:34:31 AM Object reference not set to an instance of an object. 
+10/31/2019 8:57:25 PM E:\CodeTonightBlog\CodeTonightBlog\Views\Blog\Blogs.cshtml(102): error CS1061: 'Blog' does not contain a definition for 'Author' and no extension method 'Author' accepting a first argument of type 'Blog' could be found (are you missing a using directive or an assembly reference?) 
+10/31/2019 8:59:54 PM E:\CodeTonightBlog\CodeTonightBlog\Views\Blog\Blogs.cshtml(102): error CS1061: 'Blog' does not contain a definition for 'Author' and no extension method 'Author' accepting a first argument of type 'Blog' could be found (are you missing a using directive or an assembly reference?) 
+10/31/2019 9:02:44 PM E:\CodeTonightBlog\CodeTonightBlog\Views\Blog\Blogs.cshtml(102): error CS1061: 'Blog' does not contain a definition for 'Author' and no extension method 'Author' accepting a first argument of type 'Blog' could be found (are you missing a using directive or an assembly reference?) 
+7/19/2020 12:19:49 PM The view 'index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Home/index.aspx
+~/Views/Home/index.ascx
+~/Views/Shared/index.aspx
+~/Views/Shared/index.ascx
+~/Views/Home/index.cshtml
+~/Views/Home/index.vbhtml
+~/Views/Shared/index.cshtml
+~/Views/Shared/index.vbhtml 
+7/29/2020 12:28:44 AM Cannot open database "Db_CodeTonight" requested by the login. The login failed.
+Login failed for user 'Acer\Shubham Batra'. 

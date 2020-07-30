@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Lockdown Employment Feedback";
+}
+<meta name="description" content="We are collecting data regarding employment effected during lockdown. This is just small feedback form that will be used for analysis purpose." />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-12 col-lg-6 col-md-offset-3 mt-2" style="margin-top: 5%">
+            <div class="comments-form">
+                <h2 class="title">Feedback</h2>
+                <form role="form" id="comment-form">
+                    <div class="form-group has-feedback">
+                        <label for="Name">Your Name*</label>
+                        <input type="text" class="form-control" id="Name" placeholder="Name" name="Name" required>
+                        <i class="fa fa-user form-control-feedback"></i>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="skill">Your skill*</label>
+                        <input type="text" class="form-control" id="Skill" placeholder="Skills" name="Skill" required>
+                        <i class="fa fa-pencil form-control-feedback"></i>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label for="Experience">Experience*</label>
+                        <input type="text" class="form-control" id="Experience" placeholder="Experience" name="Experience" required>
+                        <i class="fa fa-pencil form-control-feedback"></i>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label for="Employment">Employement Status</label>
+                        <select name="Employment" class="form-control" id="Employment">
+                            <option value="">Please Select Status</option>
+                            <option value="Employed">Employed</option>
+                            <option value="UnEmployed">Un-Employed</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label for="Job">Have you lost your job during lockdown ? *</label>
+                        <input type="radio" name="Job" class="Job" value="Yes">Yes
+                        <input type="radio" name="Job" class="Job" value="No"> No
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label for="JobIndustry">Specify Industry if looking for job (Optional)</label>
+                        <input type="text" class="form-control" id="JobIndustry" placeholder="" name="JobIndustry">
+                        <i class="fa fa-pencil form-control-feedback"></i>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label for="Email">Specify Email if looking for job (Optional)</label>
+                        <input type="text" class="form-control" id="Email" placeholder="" name="Email">
+                        <i class="fa fa-envelope-o form-control-feedback"></i>
+                    </div>
+                    <input type="button" value="Submit" onclick="SaveFeedback()" class="btn btn-default">
+                    <a onclick="Share()" class="btn btn-default"><i class="fa fa-share"></i> Share With Friends</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var Share = function () {
+        window.location.href = 'https://wa.me/?text=' + window.location.href;
+    }
+    var SaveFeedback=function()
+    {
+        var promises = GetAjaxDataPromise('@Url.Action("SaveFeedback", "Feedback")', { Name: $("#Name").val(), Experience: $("#Experience").val(), Skill: $("#Skill").val(), Job: $(".Job:checked").val(), Email: $("#Email").val(), JobIndustry: $("#JobIndustry").val(), Employment: $("#Employment").val() });
+            promises.done(function (response) {
+                    Swal.fire({
+                        position: 'top-center',
+                        type: 'success',
+                        title: "Thanks for your Feedback !",
+                        showConfirmButton: false,
+                        timer: 3000
+                });
+                $('input,select').val('');
+                $('.job').prop("checked", false)
+                
+            });
+    }
+</script>
+

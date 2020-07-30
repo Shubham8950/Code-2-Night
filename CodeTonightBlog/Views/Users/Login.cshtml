@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-home pr-10"></i>
+                        <a href="@Url.Action("index","User")">Home</a>
+                    </li>
+                    <li class="active">@ViewBag.Title</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="main-container">
+
+    <div class="container">
+        <div class="row">
+
+            <!-- main start -->
+            <!-- ================ -->
+            <div class="main object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="300">
+                <div class="form-block center-block">
+                    <h2 class="title">Login</h2>
+                    <hr>
+                    <div class="form-horizontal">
+                        <div class="form-group has-feedback">
+                            <label for="inputUserName" class="col-sm-3 control-label">User Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="UserName" placeholder="User Name" required>
+                                <i class="fa fa-user form-control-feedback"></i>
+                                <h3 id="UserStatus"></h3>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="Password" placeholder="Password" required>
+                                <i class="fa fa-lock form-control-feedback"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="Remember" type="checkbox"> Remember me.
+                                    </label>
+                                </div>
+                                <button type="submit" onclick="Login()" class="btn btn-group btn-default btn-sm">Log In</button>
+                                @*<ul>
+                                        <li><a href="#">Forgot your password?</a></li>
+                                    </ul>
+                                    <span class="text-center text-muted">Login with</span>
+                                    <ul class="social-links colored circle clearfix">
+                                        <li class="facebook"><a target="_blank" href="http://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                                        <li class="twitter"><a target="_blank" href="http://www.twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                        <li class="googleplus"><a target="_blank" href="http://plus.google.com/"><i class="fa fa-google-plus"></i></a></li>
+                                    </ul>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center space-top">
+                    Don't have an account yet?
+                    <a href="@Url.Action("Register","Users")">Sign up</a> now.
+                </p>
+            </div>
+            <!-- main end -->
+
+        </div>
+    </div>
+</section>
+<script>
+    var Login=function()
+    {
+
+        var promises = GetAjaxDataPromise('@Url.Action("Login", "Users")', { UserName: $("#UserName").val(), Password: $("#Password").val(), Remember: $("#Remember").is("checked") });
+        promises.done(function (response) {
+            console.log(response);
+            if (response == 1) {
+                console.log(response);
+                Swal.fire({
+                    position: 'top-center',
+                    type: 'info',
+                    title: "Wrong Username or Password.Login Denied",
+                    showConfirmButton: true,
+                    timer: 3000
+                });
+            }
+            else {
+                var data = response;
+                if (data[1] == "Admin")
+                    window.location.href = '@Url.Action("Home", "Dashboard", new {area="Admin"})';
+                else
+                    window.location.href = '@Url.Action("index", "Home", new {area="Portal"})';
+            }
+
+        });
+        promises.fail(function (data) { console.log(data)})
+    }
+</script>
