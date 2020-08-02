@@ -1,4 +1,5 @@
 ﻿using CodeTonightBlog.DAL.Common;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -72,6 +73,46 @@ namespace CodeTonightBlog.Controllers
             {
 
                 return true;
+            }
+            else
+            {
+                Encrypt.CloseUserSession();
+                return false;
+            }
+
+        }
+    }
+    public class AdminAuthenticateUser : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            base.OnActionExecuting(context);
+            if (!ISValidLogin())
+            {
+                context.Result = new RedirectToRouteResult(
+                new RouteValueDictionary
+                {
+                        {"controller", "Users"},
+                        {"action", "Login"}
+                });
+                return;
+            }
+
+        }
+        public bool ISValidLogin()
+        {
+            if (HttpContext.Current.Session["User"] != null)
+            {
+                var chkrole =JsonConvert.DeserializeObject<Users>(HttpContext.Current.Session["User"].ToString());
+
+                if(chkrole.UserRole=="Admin")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {

@@ -96,9 +96,9 @@
             else {
                 var data = response;
                 if (data[1] == "Admin")
-                    window.location.href = '@Url.Action("Home", "Dashboard", new {area="Admin"})';
+                    window.location.href = '@Url.Action("Home", "Dashboard")';
                 else
-                    window.location.href = '@Url.Action("index", "Home", new {area="Portal"})';
+                    window.location.href = '@Url.Action("index", "Users")';
             }
 
         });

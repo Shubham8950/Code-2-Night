@@ -11,5 +11,6 @@ namespace CodeTonightBlog.DAL.Common
         public Blog MyBlog { get; set; }
         public string Tag { get; set; }
         public string Author { get; set; }
+        public List<string> Tags{get;set;}
     }
 }

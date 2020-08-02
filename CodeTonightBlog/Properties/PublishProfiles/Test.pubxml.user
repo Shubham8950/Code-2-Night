@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/log/LogFile.txt">
-      <publishTime>07/29/2020 00:28:46</publishTime>
+      <publishTime>08/02/2020 19:31:06</publishTime>
     </File>
     <File Include="Areas/Admin/AdminContent/css/vertical-layout-dark/style.css">
       <publishTime>02/28/2019 22:13:24</publishTime>
@@ -298,10 +298,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/02/2014 10:27:14</publishTime>
     </File>
     <File Include="bin/CodeTonightBlog.dll">
-      <publishTime>07/30/2020 08:51:18</publishTime>
+      <publishTime>08/02/2020 22:55:29</publishTime>
     </File>
     <File Include="bin/CodeTonightBlog.pdb">
-      <publishTime>07/30/2020 08:51:18</publishTime>
+      <publishTime>08/02/2020 22:55:29</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>09/27/2019 09:55:36</publishTime>
@@ -7980,14 +7980,32 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/_references.js">
       <publishTime>10/28/2019 10:37:26</publishTime>
     </File>
+    <File Include="Views/Blog/AddBlog.cshtml">
+      <publishTime>08/02/2020 18:54:05</publishTime>
+    </File>
     <File Include="Views/Blog/BlogDetail.cshtml">
-      <publishTime>10/31/2019 21:03:57</publishTime>
+      <publishTime>08/02/2020 18:55:12</publishTime>
     </File>
     <File Include="Views/Blog/Blogs.cshtml">
       <publishTime>10/31/2019 21:02:37</publishTime>
     </File>
+    <File Include="Views/Blog/index.cshtml">
+      <publishTime>08/02/2020 18:43:54</publishTime>
+    </File>
+    <File Include="Views/Blog/Listing.cshtml">
+      <publishTime>08/02/2020 22:27:11</publishTime>
+    </File>
+    <File Include="Views/Blog/MyBlogs.cshtml">
+      <publishTime>08/02/2020 19:03:56</publishTime>
+    </File>
     <File Include="Views/Blog/Tags.cshtml">
-      <publishTime>10/29/2019 10:37:09</publishTime>
+      <publishTime>08/02/2020 18:43:18</publishTime>
+    </File>
+    <File Include="Views/BlogList/Index.cshtml">
+      <publishTime>08/02/2020 16:37:48</publishTime>
+    </File>
+    <File Include="Views/Dashboard/Home.cshtml">
+      <publishTime>08/02/2020 18:13:07</publishTime>
     </File>
     <File Include="Views/Feedback/index.cshtml">
       <publishTime>07/26/2020 10:27:38</publishTime>
@@ -7999,13 +8017,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/29/2019 04:43:11</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/29/2020 22:46:06</publishTime>
+      <publishTime>08/02/2020 19:46:24</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutAdmin.cshtml">
+      <publishTime>08/02/2020 22:31:00</publishTime>
     </File>
     <File Include="Views/Shared/_MainSlider.cshtml">
       <publishTime>07/19/2020 12:32:38</publishTime>
     </File>
     <File Include="Views/Shared/_SuccessfulRegistration.cshtml">
       <publishTime>10/28/2019 09:06:38</publishTime>
+    </File>
+    <File Include="Views/Shared/_Tags.cshtml">
+      <publishTime>08/02/2020 19:58:20</publishTime>
     </File>
     <File Include="Views/Users/Blog.cshtml">
       <publishTime>10/27/2019 16:42:20</publishTime>
@@ -8017,10 +8041,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/19/2020 12:38:04</publishTime>
     </File>
     <File Include="Views/Users/Login.cshtml">
-      <publishTime>07/19/2020 14:51:22</publishTime>
+      <publishTime>08/02/2020 18:58:38</publishTime>
     </File>
     <File Include="Views/Users/Register.cshtml">
       <publishTime>07/29/2020 22:07:11</publishTime>
+    </File>
+    <File Include="Views/Users/UserLists.cshtml">
+      <publishTime>08/02/2020 17:20:47</publishTime>
     </File>
     <File Include="Views/Users/VerifyAccount.cshtml">
       <publishTime>10/27/2019 16:42:20</publishTime>
@@ -8032,7 +8059,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/27/2019 11:07:50</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/30/2020 08:51:27</publishTime>
+      <publishTime>08/02/2020 22:35:48</publishTime>
     </File>
   </ItemGroup>
 </Project>

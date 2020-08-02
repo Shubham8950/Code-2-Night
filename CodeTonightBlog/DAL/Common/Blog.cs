@@ -30,4 +30,8 @@ namespace CodeTonightBlog.DAL.Common
 
 
     }
+    public class Tag
+    {
+        public string Tags { get; set; }
+    }
 }

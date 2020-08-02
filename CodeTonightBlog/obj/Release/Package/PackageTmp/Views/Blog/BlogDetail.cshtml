@@ -60,26 +60,18 @@
                                 <span class="day">@Model.MyBlog.Date.ToString("dd")</span>
                                 <span class="month">@Model.MyBlog.Date.ToString("MMM")<br />@Model.MyBlog.Date.ToString("yyyy")</span>
                             </div>
-                            <div id="affix"><span class="share" style="display:none" >Share This</span><div id="share"><div id="share" class="sharrre"><ul class="social-links clearfix"><li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li><li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li></ul></div></div></div>
+                            <div id="affix"><span class="share">Share This</span><div id="share"><div id="share" class="sharrre"><ul class="social-links clearfix"><li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li><li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li></ul></div></div></div>
                         </div>
                         <div class="blogpost-content">
                             <header>
-                                <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="~/Blog/Author/@Model.MyBlog.AuthorId-@Model.MyBlog.AuthorName">@Model.MyBlog.AuthorName</a></div>
+                                <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="~/Portal/Blog/Author/@Model.MyBlog.AuthorId-@Model.MyBlog.AuthorName">@Model.MyBlog.AuthorName</a></div>
                             </header>
-                            @*<div class="owl-carousel content-slider-with-controls">
-                                <div class="overlay-container">
-                                    <img src="images/blog-1.jpg" alt="">
-                                    <a href="images/blog-1.jpg" class="popup-img overlay" title="image title"><i class="fa fa-search-plus"></i></a>
+                            @if (Model.MyBlog.VideoEmbed != null)
+                            {
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    @Html.Raw(Model.MyBlog.VideoEmbed)
                                 </div>
-                                <div class="overlay-container">
-                                    <img src="images/blog-2.jpg" alt="">
-                                    <a href="images/blog-2.jpg" class="popup-img overlay" title="image title"><i class="fa fa-search-plus"></i></a>
-                                </div>
-                                <div class="overlay-container">
-                                    <img src="images/blog-3.jpg" alt="">
-                                    <a href="images/blog-3.jpg" class="popup-img overlay" title="image title"><i class="fa fa-search-plus"></i></a>
-                                </div>
-                            </div>*@
+                            }
                             <div>
                                 <p>
                                     @Html.Raw(Model.MyBlog.BlogBody)

@@ -51,6 +51,10 @@ namespace CodeTonightBlog.DAL.Repository
             var myblog = GetList("sprBlogs", DynamicParameter);
             return myblog.ToList();
         }
+        public List<Tag> Tag()
+        {
+            return GetTableById("sprTags", "List").DataTableToList<Tag>();
+        }
         public Blog BlogDetail(string name)
         {
             var DynamicParameter = new DynamicParameters();

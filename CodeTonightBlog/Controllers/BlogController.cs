@@ -27,7 +27,14 @@ namespace CodeTonightBlog.Controllers
         {
             _blogrepo = blogrepo;
         }
-        public ActionResult Blog()
+        public ActionResult Index()
+        {
+            MyBlogs blog = new MyBlogs();
+            blog.BlogsList = _blogrepo.GetBlogs().ToList();
+            return View("index", blog);
+        }
+        [AuthenticateUser]
+        public ActionResult AddBlog()
         {
             return View();
         }
@@ -53,49 +60,74 @@ namespace CodeTonightBlog.Controllers
 
         }
 
+        
+      
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Login", "Users");
+
+        }
+        
+        [AuthenticateUser]
         public ActionResult MyBlogs()
         {
             Users user = JsonConvert.DeserializeObject<Users>(Convert.ToString(Session["User"]));
             var myblogs = _blogrepo.GetMyBlogs(user);
             return View(myblogs);
         }
-
+        [AuthenticateUser]
         public ActionResult MyBlog(string id)
         {
             //Users user = JsonConvert.DeserializeObject<Users>(Convert.ToString(Session["User"]));
             MyBlogs blog = new MyBlogs();
             blog.BlogsList = _blogrepo.GetBlogs();
             blog.MyBlog = _blogrepo.BlogDetail(id);
+
             return View("BlogDetail", blog);
         }
-        public ActionResult Blogs(string id)
-        {
-            //Users user = JsonConvert.DeserializeObject<Users>(Convert.ToString(Session["User"]));
-            MyBlogs blog = new MyBlogs();
-            blog.BlogsList = _blogrepo.GetBlogs().ToList();
-            return View("Blogs", blog);
-        }
+        [AuthenticateUser]
         public ActionResult Tags(string id)
         {
             //Users user = JsonConvert.DeserializeObject<Users>(Convert.ToString(Session["User"]));
             MyBlogs blog = new MyBlogs();
             blog.BlogsList = _blogrepo.GetBlogs().Where(x => x.Tags.Contains(id)).ToList();
             blog.Tag = Sanitizer.GetSafeHtmlFragment(id);
+
+
+
             return View("Tags", blog);
         }
+        [ChildActionOnly]
+        public ActionResult TagsList()
+        {
+            //Users user = JsonConvert.DeserializeObject<Users>(Convert.ToString(Session["User"]));
+            MyBlogs blog = new MyBlogs();
+            blog.Tags = string.Join(",",_blogrepo.Tag().Select(x=>x.Tags)).Split(',').ToList();
+            return PartialView("_Tags", blog);
+        }
+        [AuthenticateUser]
         public ActionResult Author(string id)
         {
             //Users user = JsonConvert.DeserializeObject<Users>(Convert.ToString(Session["User"]));
             MyBlogs blog = new MyBlogs();
-            blog.BlogsList = _blogrepo.GetBlogs().Where(x => x.User.Id.ToString().Contains(id.Split('-').First())).ToList();
+            blog.BlogsList = _blogrepo.GetBlogs().Where(x => x.AuthorId.ToString().Contains(id.Split('-').First())).ToList();
             blog.Author = id.Split('-').Last();
+
             return View("Tags", blog);
         }
-        public ActionResult Logout()
+        [AdminAuthenticateUser]
+        public ActionResult Listing()
         {
-            Session.Abandon();
-            return RedirectToAction("Login", "User");
+            var GetBlogs = _blogrepo.GetBlogs();
+            return View(GetBlogs);
+        }
 
+        [HttpGet]
+        public ActionResult Delete(int Blogid)
+        {
+            _blogrepo.BlogDelete(Blogid);
+            return RedirectToAction("Listing");
         }
     }
 }

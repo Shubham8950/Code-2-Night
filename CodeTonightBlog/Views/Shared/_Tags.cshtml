@@ -1,0 +1,11 @@
+﻿@model CodeTonightBlog.DAL.Common.MyBlogs
+<div class="tags-cloud">
+    @foreach (var item in Model.Tags.Take(20))
+    {
+        <div class="tag">
+            <a href="~/Blog/Tags/@item">@item</a>
+        </div>
+
+    }
+</div>
+ 

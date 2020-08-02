@@ -134,8 +134,21 @@ namespace CodeTonightBlog.Controllers
             return View();
         }
 
-        
+        //
+        [AdminAuthenticateUser]
+        public ActionResult UserLists()
+        {
+            var getusr = _userrepo.GetUsers();
+            return View(getusr);
+        }
 
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            _userrepo.UserDelete(id);
+
+            return RedirectToAction("UserLists");
+        }
 
     }
 }
