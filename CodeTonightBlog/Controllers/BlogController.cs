@@ -40,20 +40,21 @@ namespace CodeTonightBlog.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddBlog(string Title, string Tags, string BlogBody, string VideoEmbed)
+        public JsonResult AddBlog(Blog blog)
         {
             Users user = JsonConvert.DeserializeObject<Users>(Convert.ToString(Session["User"]));
-            string Blogurl = Sanitizer.GetSafeHtmlFragment(Title).Replace(' ', '-');
+            string Blogurl = Sanitizer.GetSafeHtmlFragment(blog.Title).Trim().Replace(' ', '-').Replace(".","");
             Blog myblog = new Blog()
             {
-                Title = Title,
-                Tags = Tags,
-                BlogBody = BlogBody,
+                Title = blog.Title,
+                Tags = blog.Tags,
+                BlogBody = blog.BlogBody,
                 Date = DateTime.Now,
-                User = new Users() { Name = user.Name, Email = user.Email, Id = user.Id },
+                User = new Users() { Name = user.Name, Email = user.Email, Id = user.UserID },
                 BlogUrl = Blogurl,
                 BlogMonth = DateTime.Now.ToString("MMM-yyyy"),
-                VideoEmbed = VideoEmbed
+                VideoEmbed = blog.VideoEmbed,
+                AuthorId = Convert.ToString(user.UserID),
             };
             _blogrepo.AddBlog(myblog);
             return Json(new { Success = true }, JsonRequestBehavior.AllowGet);

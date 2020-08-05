@@ -207,7 +207,8 @@
 
     var SaveBlog=function()
     {
-        var promises = GetAjaxDataPromise('@Url.Action("AddBlog", "Blog")', { Title: $("#title").val(), Tags: $('#tokenfield').val(), BlogBody: $("#blog").html(), VideoEmbed: $("#videoembed").val() });
+        debugger;
+        var promises = GetAjaxDataPromise('@Url.Action("AddBlog", "Blog")', { blog: { Title: $("#title").val(), Tags: $('#tokenfield').val(), BlogBody: $("#blog").html(), VideoEmbed: $("#videoembed").val() } });
         promises.done(function (response) {
             console.log(response);
             console.log();

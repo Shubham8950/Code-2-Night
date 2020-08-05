@@ -43,8 +43,11 @@ namespace CodeTonightBlog.Controllers
 
         public static void ErroLog(ExceptionContext exception)
         {
-           
-            var filename = AppDomain.CurrentDomain.BaseDirectory + "App_Data\\" + "log\\" + "LogFile.txt";
+           if(!Directory.Exists(System.Web.HttpContext.Current.Server.MapPath("~/log")))
+            {
+                Directory.CreateDirectory(System.Web.HttpContext.Current.Server.MapPath("~/log"));
+            }
+            var filename = System.Web.HttpContext.Current.Server.MapPath("~/log/LogFile.txt");
             var sw = new System.IO.StreamWriter(filename, true);
             sw.WriteLine(DateTime.Now.ToString() + " " + exception.Exception.Message + " " + exception.Exception.InnerException);
             sw.Close();

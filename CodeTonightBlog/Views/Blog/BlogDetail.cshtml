@@ -2,7 +2,8 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     List<string> List = new List<string>();
-    foreach (var item in Model.BlogsList.Select(x => x.Tags.Split(',')).ToList())
+
+    foreach (var item in Model.BlogsList.Where(x=>x.Tags!=null).Select(x => x.Tags.Split(',')).ToList())
     {
 
         foreach (var tag in item)
@@ -82,11 +83,11 @@
                     </div>
                     <footer class="clearfix">
                         <ul class="links pull-left">
-                            <li><i class="fa fa-comment-o pr-5"></i><a href="~/Blog/MyBlog/@Model.MyBlog.BlogUrl#disqus_thread"></a> |</li>
+                            <li><i class="fa fa-comment-o pr-5"></i><a href="/Blog/MyBlog/@Model.MyBlog.BlogUrl#disqus_thread"></a> |</li>
                             <li><i class="fa fa-tags pr-5"></i> 
                                 @foreach (var str in Model.MyBlog.Tags.Split(',').ToList())
                                 {
-                                    <a href="~/Blog/Tags/@str">@str @(Model.MyBlog.Tags.Split(',').ToList().IndexOf(str).Equals(Model.MyBlog.Tags.Split(',').ToList().Count - 1) ? "" : ",")</a>
+                                    <a href="/Blog/Tags/@str">@str @(Model.MyBlog.Tags.Split(',').ToList().IndexOf(str).Equals(Model.MyBlog.Tags.Split(',').ToList().Count - 1) ? "" : ",")</a>
                                 }
                             
                              </li>

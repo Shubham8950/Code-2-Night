@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/log/LogFile.txt">
-      <publishTime>08/02/2020 19:31:06</publishTime>
+      <publishTime>08/05/2020 06:35:06</publishTime>
     </File>
     <File Include="Areas/Admin/AdminContent/css/vertical-layout-dark/style.css">
       <publishTime>02/28/2019 22:13:24</publishTime>
@@ -298,10 +298,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/02/2014 10:27:14</publishTime>
     </File>
     <File Include="bin/CodeTonightBlog.dll">
-      <publishTime>08/02/2020 22:55:29</publishTime>
+      <publishTime>08/05/2020 09:48:51</publishTime>
     </File>
     <File Include="bin/CodeTonightBlog.pdb">
-      <publishTime>08/02/2020 22:55:29</publishTime>
+      <publishTime>08/05/2020 09:48:51</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>09/27/2019 09:55:36</publishTime>
@@ -7981,16 +7981,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/28/2019 10:37:26</publishTime>
     </File>
     <File Include="Views/Blog/AddBlog.cshtml">
-      <publishTime>08/02/2020 18:54:05</publishTime>
+      <publishTime>08/05/2020 00:01:21</publishTime>
     </File>
     <File Include="Views/Blog/BlogDetail.cshtml">
-      <publishTime>08/02/2020 18:55:12</publishTime>
+      <publishTime>08/05/2020 09:12:31</publishTime>
     </File>
     <File Include="Views/Blog/Blogs.cshtml">
       <publishTime>10/31/2019 21:02:37</publishTime>
     </File>
     <File Include="Views/Blog/index.cshtml">
-      <publishTime>08/02/2020 18:43:54</publishTime>
+      <publishTime>08/05/2020 00:07:47</publishTime>
     </File>
     <File Include="Views/Blog/Listing.cshtml">
       <publishTime>08/02/2020 22:27:11</publishTime>
@@ -8053,13 +8053,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/27/2019 16:42:20</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>10/27/2019 11:07:50</publishTime>
+      <publishTime>08/05/2020 09:39:55</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>10/27/2019 11:07:50</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/02/2020 22:35:48</publishTime>
+      <publishTime>08/05/2020 01:32:08</publishTime>
     </File>
   </ItemGroup>
 </Project>

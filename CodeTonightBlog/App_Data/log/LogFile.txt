@@ -82,3 +82,10 @@ Login failed for user 'Acer\Shubham Batra'.
    at System.Web.Mvc.HttpHandlerUtil.ServerExecuteHttpHandlerWrapper.Wrap(Action action)
    at System.Web.Mvc.HttpHandlerUtil.ServerExecuteHttpHandlerAsyncWrapper.EndProcessRequest(IAsyncResult result)
    at System.Web.HttpServerUtility.ExecuteInternal(IHttpHandler handler, TextWriter writer, Boolean preserveForm, Boolean setPreviousPage, VirtualPath path, VirtualPath filePath, String physPath, Exception error, String queryStringOverride)
+8/4/2020 11:31:15 PM A potentially dangerous Request.Form value was detected from the client (BlogBody="<p>12</p>"). 
+8/4/2020 11:44:31 PM A potentially dangerous Request.Form value was detected from the client (BlogBody="<p>12</p>"). 
+8/4/2020 11:46:35 PM A potentially dangerous Request.Form value was detected from the client (BlogBody="<p>1</p>"). 
+8/4/2020 11:58:14 PM A potentially dangerous Request.Form value was detected from the client (BlogBody="<p>e</p>"). 
+8/5/2020 12:06:56 AM Object reference not set to an instance of an object. 
+8/5/2020 12:07:51 AM Object reference not set to an instance of an object. 
+8/5/2020 6:35:06 AM Object reference not set to an instance of an object. 

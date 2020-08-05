@@ -87,8 +87,8 @@ E:\CodeTonightBlog\Code2night\CodeTonightBlog\bin\System.Web.WebPages.xml
 E:\CodeTonightBlog\Code2night\CodeTonightBlog\bin\System.Web.WebPages.Deployment.xml
 E:\CodeTonightBlog\Code2night\CodeTonightBlog\bin\System.Web.WebPages.Razor.xml
 E:\CodeTonightBlog\Code2night\CodeTonightBlog\bin\System.Web.Optimization.xml
-E:\CodeTonightBlog\Code2night\CodeTonightBlog\obj\Release\CodeTonightBlog.csprojAssemblyReference.cache
 E:\CodeTonightBlog\Code2night\CodeTonightBlog\obj\Release\CodeTonightBlog.csproj.CoreCompileInputs.cache
 E:\CodeTonightBlog\Code2night\CodeTonightBlog\obj\Release\CodeTonightBlog.csproj.CopyComplete
 E:\CodeTonightBlog\Code2night\CodeTonightBlog\obj\Release\CodeTonightBlog.dll
 E:\CodeTonightBlog\Code2night\CodeTonightBlog\obj\Release\CodeTonightBlog.pdb
+E:\CodeTonightBlog\Code2night\CodeTonightBlog\obj\Release\CodeTonightBlog.csprojAssemblyReference.cache
