@@ -13,7 +13,7 @@ namespace CodeTonightBlog.DAL.Interfaces
     {
 
         List<Blog> GetBlogs();
-        void AddBlog(Blog blog);
+        string AddBlog(Blog blog);
         List<Blog> GetMyBlogs(Users user);
         List<Tag> Tag();
         Blog BlogDetail(string name);

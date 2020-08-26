@@ -1,0 +1,54 @@
+﻿@model CodeTonightBlog.DAL.Common.MyBlogs
+@foreach (var blog in Model.BlogsList)
+{
+    <div class="masonry-grid-item col-sm-6 col-md-4" id="mydiv">
+        <!-- blogpost start -->
+        <article class="clearfix blogpost">
+            @if (blog.VideoEmbed != null)
+            {
+                <div class="embed-responsive embed-responsive-16by9">
+                    @Html.Raw(blog.VideoEmbed)
+                </div>
+            }
+            <div class="blogpost-body" style='max-height: 410px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 351px;'>
+                <div class="post-info">
+                    <span class="day">@blog.Date.ToString("dd")</span>
+                    <span class="month">@blog.Date.ToString("MMM yyyy")</span>
+                </div>
+                <div class="blogpost-content">
+                    <header>
+                        <h2 class="title"><a href="~/Blog/MyBlog/@blog.BlogUrl">@blog.Title</a></h2>
+                        <div class="submitted">
+                            <i class="fa fa-user pr-5"></i> by <a href="~/Blog/Author/@blog.AuthorId-@blog.AuthorName">@blog.AuthorName</a><a style="
+    color: black;
+    margin-left: 16px;
+"><i class="fa fa-eye"></i>@blog.TotalView</a>
+</div>
+</header>
+<p>@Html.Raw(blog.BlogBody)</p>
+</div>
+</div>
+<footer class="clearfix">
+    <ul class="links pull-left">
+
+        <li>
+            <i class="fa fa-tags pr-5"></i>
+            @if (blog.Tags != null)
+            {
+                var list = blog.Tags.Split(',').ToList().Take(2).ToList();
+                foreach (var str in list)
+                {
+                    <a href="~/Blog/Tags/@str">@str @(list.IndexOf(str).Equals(list.Count - 1) ? "" : ",")</a>
+                }
+            }
+        </li>
+    </ul>
+    <a class="pull-right link" href="~/Blog/MyBlog/@blog.BlogUrl"><span>Read more</span></a>
+</footer>
+</article>
+<!-- blogpost end -->
+</div>
+}

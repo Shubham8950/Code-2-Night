@@ -10,6 +10,9 @@ using System.IO;
 using System.Threading.Tasks;
 using CodeTonightBlog.DAL.Common;
 using Dapper;
+using System.Data.SqlClient;
+using System.Data;
+
 namespace CodeTonightBlog.DAL.Repository
 {
     public class BlogRepo :GenericMasterRepo<Blog>, IBlog
@@ -34,7 +37,7 @@ namespace CodeTonightBlog.DAL.Repository
         public List<Blog> GetBlogs()
         {
             var DynamicParameter = new DynamicParameters();
-            DynamicParameter.Add("@Activity", "List");
+            DynamicParameter.Add("@Activity", "ListBlogFile");
             var blog = GetList("sprBlogs", DynamicParameter);
             return blog.ToList();
         }
@@ -63,19 +66,22 @@ namespace CodeTonightBlog.DAL.Repository
             var blog = GetList("sprBlogs", DynamicParameter);
             return blog.ToList().FirstOrDefault();
         }
-        public void AddBlog(Blog blog)
+        public string AddBlog(Blog blog)
         {
-            var DynamicParameter = new DynamicParameters();
-            DynamicParameter.Add("@Activity", "Add");
-            DynamicParameter.Add("@BlogUrl", blog.BlogUrl);
-            DynamicParameter.Add("@UserID", blog.User.Id);
-            DynamicParameter.Add("@BlogMonth", blog.BlogMonth);
-            DynamicParameter.Add("@BlogBody", blog.BlogBody);
-            DynamicParameter.Add("@Title", blog.Title);
-            DynamicParameter.Add("@Categories", blog.Categories);
-            DynamicParameter.Add("@Tags", blog.Tags);
-            var result=Insert("sprBlogs", DynamicParameter);
-
+            SqlDataAdapter adp = new SqlDataAdapter("sprBlogs",Connection.sqlConStr);
+            adp.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            adp.SelectCommand.Parameters.AddWithValue("@Activity", "Add");
+            adp.SelectCommand.Parameters.AddWithValue("@BlogUrl", blog.BlogUrl);
+            adp.SelectCommand.Parameters.AddWithValue("@UserID", blog.User.Id);
+            adp.SelectCommand.Parameters.AddWithValue("@BlogMonth", blog.BlogMonth);
+            adp.SelectCommand.Parameters.AddWithValue("@BlogBody", blog.BlogBody);
+            adp.SelectCommand.Parameters.AddWithValue("@Title", blog.Title);
+            adp.SelectCommand.Parameters.AddWithValue("@Categories", blog.Categories);
+            adp.SelectCommand.Parameters.AddWithValue("@Tags", blog.Tags);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            var id =Convert.ToString( dt.Rows[0][0]);
+            return id;
         }
 
 

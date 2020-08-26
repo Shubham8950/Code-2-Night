@@ -128,6 +128,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\DashboardGraphController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\Common\Blog.cs" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\log\LogFile.txt" />
+    <Content Include="blog.txt" />
     <Content Include="build\config\postcss.config.js" />
     <Content Include="build\config\rollup.config.js" />
     <Content Include="build\js\AdminLTE.js" />
@@ -2728,8 +2730,12 @@
     <Content Include="Views\Blog\AddBlog.cshtml" />
     <Content Include="Views\Blog\MyBlogs.cshtml" />
     <Content Include="Views\Shared\_Tags.cshtml" />
+    <Content Include="Views\Blog\Blogs.cshtml" />
+    <Content Include="Views\Blog\_BlogsList.cshtml" />
+    <Content Include="Views\DashboardGraph\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="BlogFIles\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

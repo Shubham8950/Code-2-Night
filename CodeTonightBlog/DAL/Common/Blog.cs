@@ -11,7 +11,7 @@ namespace CodeTonightBlog.DAL.Common
     {
         // [BsonId(IdGenerator = typeof(ObjectIdGenerator))]
         public int Id { get; set; }
-
+        public int BlogId { get; set; }
         public string Title { get; set; }
         public string Categories { get; set; }
         public DateTime Date { get; set; }
@@ -26,6 +26,7 @@ namespace CodeTonightBlog.DAL.Common
         public string Tags { get; set; }
         public string AuthorName { get; set; }
         public string AuthorId { get; set; }
+        public int TotalView { get; set; }
 
 
 

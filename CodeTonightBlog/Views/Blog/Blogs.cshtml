@@ -1,18 +1,21 @@
 ﻿@model CodeTonightBlog.DAL.Common.MyBlogs
 @{
-    ViewBag.Title = "Tags";
+    ViewBag.Title = "Blogs";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="https://cdn.bootcss.com/simplePagination.js/1.6/simplePagination.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/simplePagination.js/1.6/jquery.simplePagination.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
 <div class="page-intro">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home pr-10"></i><a href="@Url.Action("index","User")">Home</a></li>
-                    <li >Blogs    </li> <li class="active">@(!string.IsNullOrEmpty(Model.Tag)?"Tags":"Authors")
-                   </li>
+                    <li class="active">@ViewBag.Title</li>
                 </ol>
             </div>
         </div>
@@ -31,17 +34,7 @@
             <div class="main col-md-12" >
 
                 <!-- page-title start -->
-                <!-- ================ -->
-                <h3 class="page-title">Blog results for 
-                @if (!string.IsNullOrEmpty(Model.Tag))
-                {
-                   @: Tags - <span style="background-color:#e84c3d;padding:4px;color: white;font-size: 18px;">#@Model.Tag </span> </h3>
-                }
-                else
-                {
-                    @: Author - <span style="background-color:#e84c3d;padding:4px;color: white;font-size: 18px;">#@Model.Author </span> </h3>
-                    }
-                <div class="separator-2"></div>
+              
                 
                 <!-- page-title end -->
                 <!-- masonry grid start -->
@@ -368,7 +361,10 @@
 
         </div>
     </div>
+
 </section>
+<link href="https://cdn.bootcss.com/simplePagination.js/1.6/simplePagination.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/simplePagination.js/1.6/jquery.simplePagination.js"></script>
 <script>
     $(document).ready(function () {
 
@@ -381,7 +377,7 @@
         //    itemsOnPage: 10,
         //    cssStyle: 'light-theme'
          //});
-   
+        
          var items = $("#lvCandidatestbl #mydiv");
         var numItems = items.length;
         var perPage = 9;

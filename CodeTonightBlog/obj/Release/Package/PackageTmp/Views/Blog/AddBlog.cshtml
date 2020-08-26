@@ -43,6 +43,10 @@
     {
        padding: 4px 2px !important;
     }
+	 .main h1#Title.page-title, #blogbody #blog p {
+        display: inline-block;
+        word-break: break-all;
+    }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/jquery-ajax-unobtrusive@3.2.6/dist/jquery.unobtrusive-ajax.min.js"></script>
 <section class="main-container" >
@@ -207,7 +211,7 @@
 
     var SaveBlog=function()
     {
-        debugger;
+        
         var promises = GetAjaxDataPromise('@Url.Action("AddBlog", "Blog")', { blog: { Title: $("#title").val(), Tags: $('#tokenfield').val(), BlogBody: $("#blog").html(), VideoEmbed: $("#videoembed").val() } });
         promises.done(function (response) {
             console.log(response);

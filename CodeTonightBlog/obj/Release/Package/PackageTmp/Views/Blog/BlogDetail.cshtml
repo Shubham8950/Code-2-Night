@@ -2,7 +2,6 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     List<string> List = new List<string>();
-
     foreach (var item in Model.BlogsList.Where(x=>x.Tags!=null).Select(x => x.Tags.Split(',')).ToList())
     {
 
@@ -61,11 +60,22 @@
                                 <span class="day">@Model.MyBlog.Date.ToString("dd")</span>
                                 <span class="month">@Model.MyBlog.Date.ToString("MMM")<br />@Model.MyBlog.Date.ToString("yyyy")</span>
                             </div>
-                            <div id="affix"><span class="share">Share This</span><div id="share"><div id="share" class="sharrre"><ul class="social-links clearfix"><li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li><li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li></ul></div></div></div>
+                            <div id="affix"><span class="share">Share This</span><div id="share"><div id="share" class="sharrre">
+                            <ul class="social-links clearfix">
+                            <li class="facebook"><a href="http://www.facebook.com/sharer.php?u=https://code2night.com/Blog/MyBlog/@(Model.MyBlog.BlogUrl)" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li class="twitter"><a href="http://twitter.com/share?url=https://code2night.com/Blog/MyBlog/@(Model.MyBlog.BlogUrl)&text=@(Model.MyBlog.Title)&via=code2night" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li class="twitter"><a href="http://reddit.com/submit?url=https://code2night.com/Blog/MyBlog/@(Model.MyBlog.BlogUrl)&title=@(Model.MyBlog.Title)" target="_blank"><i class="fa fa-reddit-alien"></i></a></li>
+                            <li class="twitter"><a href="http://www.tumblr.com/share/link?url=https://code2night.com/Blog/MyBlog/@(Model.MyBlog.BlogUrl)" target="_blank"><i class="fa fa-tumblr"></i></a></li>
+                            <li class="twitter"><a href="http://www.linkedin.com/shareArticle?mini=true&url=https://code2night.com/Blog/MyBlog/@(Model.MyBlog.BlogUrl)&title=Code2Night" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                            </div></div></div>
                         </div>
                         <div class="blogpost-content">
                             <header>
-                                <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="~/Portal/Blog/Author/@Model.MyBlog.AuthorId-@Model.MyBlog.AuthorName">@Model.MyBlog.AuthorName</a></div>
+                                <div class="submitted"><i class="fa fa-user pr-5"></i> by <a href="~/Portal/Blog/Author/@Model.MyBlog.AuthorId-@Model.MyBlog.AuthorName">@Model.MyBlog.AuthorName</a> <a style="
+    color: black;
+    margin-left: 16px;
+"><i class="fa fa-eye"></i> @Model.MyBlog.TotalView</a></div>
                             </header>
                             @if (Model.MyBlog.VideoEmbed != null)
                             {
@@ -83,11 +93,11 @@
                     </div>
                     <footer class="clearfix">
                         <ul class="links pull-left">
-                            <li><i class="fa fa-comment-o pr-5"></i><a href="/Blog/MyBlog/@Model.MyBlog.BlogUrl#disqus_thread"></a> |</li>
+                            <li><i class="fa fa-comment-o pr-5"></i><a href="~/Blog/MyBlog/@Model.MyBlog.BlogUrl#disqus_thread"></a> |</li>
                             <li><i class="fa fa-tags pr-5"></i> 
                                 @foreach (var str in Model.MyBlog.Tags.Split(',').ToList())
                                 {
-                                    <a href="/Blog/Tags/@str">@str @(Model.MyBlog.Tags.Split(',').ToList().IndexOf(str).Equals(Model.MyBlog.Tags.Split(',').ToList().Count - 1) ? "" : ",")</a>
+                                    <a href="~/Blog/Tags/@str">@str @(Model.MyBlog.Tags.Split(',').ToList().IndexOf(str).Equals(Model.MyBlog.Tags.Split(',').ToList().Count - 1) ? "" : ",")</a>
                                 }
                             
                              </li>
