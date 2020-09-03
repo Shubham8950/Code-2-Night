@@ -35,4 +35,18 @@ namespace CodeTonightBlog.DAL.Common
     {
         public string Tags { get; set; }
     }
+
+    public class TodoItem
+    {
+        public int Id { get; set; }
+        public string TaskName { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public bool IsCompleted { get; set; }
+        public string ToDoTime { get; set; }
+        public string Color { get; set; }
+
+        
+
+    }
+
 }

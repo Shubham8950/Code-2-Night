@@ -67,6 +67,10 @@ namespace CodeTonightBlog.DAL.Repository
                 return db.Query<T>(spname, param, commandType: CommandType.StoredProcedure);
             }
         }
+
+
+
+
         public List<T> GetListOptimized(string spname, string Activity, int? Id = 0)
         {
             using (IDbConnection db = DapperCon)

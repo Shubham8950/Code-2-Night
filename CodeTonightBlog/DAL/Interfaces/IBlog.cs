@@ -18,6 +18,12 @@ namespace CodeTonightBlog.DAL.Interfaces
         List<Tag> Tag();
         Blog BlogDetail(string name);
         void BlogDelete(int Blogid);
+        List<EmployeeDashboard> employeeDashboards();
+        DashBoardCount EmployeeDashboardsCount();
+        string AddItem(TodoItem todoItem);
+        string SaveUpdateItem(TodoItem todoItem);
+        List<TodoItem> GetToDo();
+
         //List<SlideShow> GetSlides ();
         //void AddNewSlide(SlideShow slide);
         //void UpdateSlide(SlideShow slide);

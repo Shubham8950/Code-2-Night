@@ -298,10 +298,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/02/2014 10:27:14</publishTime>
     </File>
     <File Include="bin/CodeTonightBlog.dll">
-      <publishTime>08/25/2020 13:54:21</publishTime>
+      <publishTime>08/29/2020 20:24:32</publishTime>
     </File>
     <File Include="bin/CodeTonightBlog.pdb">
-      <publishTime>08/25/2020 13:54:21</publishTime>
+      <publishTime>08/29/2020 20:24:32</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>09/27/2019 09:55:36</publishTime>
@@ -1177,7 +1177,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/25/2019 23:21:35</publishTime>
     </File>
     <File Include="Content/js/js/template.js">
-      <publishTime>07/14/2020 22:18:42</publishTime>
+      <publishTime>08/29/2020 17:34:30</publishTime>
     </File>
     <File Include="Content/js/nicescroll.js">
       <publishTime>07/14/2020 21:58:27</publishTime>
@@ -1186,7 +1186,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/14/2020 22:18:42</publishTime>
     </File>
     <File Include="Content/js/template.js">
-      <publishTime>07/14/2020 22:18:42</publishTime>
+      <publishTime>08/29/2020 17:33:23</publishTime>
     </File>
     <File Include="Content/plugins/charts/Chart.js">
       <publishTime>07/14/2020 22:18:43</publishTime>
@@ -1666,7 +1666,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/29/2020 00:16:08</publishTime>
     </File>
     <File Include="dist/js/pages/dashboard.js">
-      <publishTime>07/29/2020 00:16:08</publishTime>
+      <publishTime>08/29/2020 18:03:01</publishTime>
     </File>
     <File Include="dist/js/pages/dashboard2.js">
       <publishTime>07/29/2020 00:16:08</publishTime>
@@ -1804,7 +1804,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/29/2020 00:16:09</publishTime>
     </File>
     <File Include="docs/assets/js/pages/dashboard.js">
-      <publishTime>07/29/2020 00:16:09</publishTime>
+      <publishTime>08/29/2020 17:42:34</publishTime>
     </File>
     <File Include="docs/assets/js/pages/dashboard2.js">
       <publishTime>07/29/2020 00:16:09</publishTime>
@@ -7863,6 +7863,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/bootstrap.min.js.map">
       <publishTime>10/27/2019 11:24:20</publishTime>
     </File>
+    <File Include="Scripts/canvasjs.min.js">
+      <publishTime>08/26/2020 16:14:48</publishTime>
+    </File>
+    <File Include="Scripts/canvasjs.react.js">
+      <publishTime>08/26/2020 16:14:48</publishTime>
+    </File>
     <File Include="Scripts/esm/popper-utils.js">
       <publishTime>07/14/2020 22:18:44</publishTime>
     </File>
@@ -8013,6 +8019,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Dashboard/Home.cshtml">
       <publishTime>08/03/2020 06:43:08</publishTime>
     </File>
+    <File Include="Views/DashboardGraph/index.cshtml">
+      <publishTime>08/29/2020 20:21:25</publishTime>
+    </File>
     <File Include="Views/Feedback/index.cshtml">
       <publishTime>07/26/2020 22:57:40</publishTime>
     </File>
@@ -8026,7 +8035,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/16/2020 00:22:48</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAdmin.cshtml">
-      <publishTime>08/03/2020 11:01:02</publishTime>
+      <publishTime>08/29/2020 17:32:16</publishTime>
     </File>
     <File Include="Views/Shared/_MainSlider.cshtml">
       <publishTime>07/20/2020 01:02:40</publishTime>
@@ -8047,7 +8056,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/20/2020 01:08:06</publishTime>
     </File>
     <File Include="Views/Users/Login.cshtml">
-      <publishTime>08/03/2020 07:28:40</publishTime>
+      <publishTime>08/29/2020 12:33:44</publishTime>
     </File>
     <File Include="Views/Users/Register.cshtml">
       <publishTime>07/30/2020 10:37:12</publishTime>

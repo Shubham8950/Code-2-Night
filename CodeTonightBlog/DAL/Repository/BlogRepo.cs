@@ -12,6 +12,7 @@ using CodeTonightBlog.DAL.Common;
 using Dapper;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace CodeTonightBlog.DAL.Repository
 {
@@ -41,6 +42,9 @@ namespace CodeTonightBlog.DAL.Repository
             var blog = GetList("sprBlogs", DynamicParameter);
             return blog.ToList();
         }
+
+        
+
         public void BlogDelete(int Id)
         {
             Connection.Delete(Id, "sprBlogs", "Delete", "Id");
@@ -82,6 +86,44 @@ namespace CodeTonightBlog.DAL.Repository
             adp.Fill(dt);
             var id =Convert.ToString( dt.Rows[0][0]);
             return id;
+        }
+
+        private readonly string CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        public List<EmployeeDashboard> employeeDashboards()
+        {
+          return  GetTableById("TrafficWeeklyGraph","").DataTableToList<EmployeeDashboard>();
+        }
+        public DashBoardCount EmployeeDashboardsCount()
+        {
+            return GetTableById("sprDashBoardView", "").DataTableToList<DashBoardCount>().FirstOrDefault();
+        }
+
+        public string AddItem(TodoItem todoItem)
+        {
+
+            SqlCommand com = new SqlCommand("TaskToDos");
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@TaskName", todoItem.TaskName);
+            return Connection.ExecuteNonQuery(com);
+        }
+
+        public List<TodoItem> GetToDo()
+        {
+            return GetTableById("GetToDo", "").DataTableToList<TodoItem>();
+        }
+
+        public string SaveUpdateItem(TodoItem todoItem)
+        {
+            if (todoItem.IsCompleted==true)
+            {
+
+            }
+            SqlCommand com = new SqlCommand("SaveUpdateItem");
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@Id", todoItem.Id);
+            com.Parameters.AddWithValue("@IsCompleted", todoItem.IsCompleted);
+
+            return Connection.ExecuteNonQuery(com);
         }
 
 

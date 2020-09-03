@@ -134,6 +134,7 @@
     <Compile Include="DAL\Common\Blog.cs" />
     <Compile Include="DAL\Common\Connection.cs" />
     <Compile Include="DAL\Common\DataReaderExtensions.cs" />
+    <Compile Include="DAL\Common\EmployeeDashboard.cs" />
     <Compile Include="DAL\Common\Encrypt.cs" />
     <Compile Include="DAL\Common\Feedback.cs" />
     <Compile Include="DAL\Common\MyBlogs.cs" />
@@ -2389,6 +2390,8 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\canvasjs.min.js" />
+    <Content Include="Scripts\canvasjs.react.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -2689,7 +2692,9 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

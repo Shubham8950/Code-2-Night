@@ -776,7 +776,7 @@
 		// Animated Progress Bars
 		//-----------------------------------------------
 		if ($(".knob").length>0) {
-			$(".knob").knob();
+			//$(".knob").knob();
 		}
 
 		// Charts

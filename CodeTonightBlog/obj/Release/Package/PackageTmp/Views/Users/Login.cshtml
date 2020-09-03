@@ -96,7 +96,7 @@
             else {
                 var data = response;
                 if (data[1] == "Admin")
-                    window.location.href = '@Url.Action("Home", "Dashboard")';
+                    window.location.href = '@Url.Action("index", "DashboardGraph")';
                 else
                     window.location.href = '@Url.Action("index", "Users")';
             }
